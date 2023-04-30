@@ -1,0 +1,6 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 15px;
+}
