@@ -7,7 +7,7 @@
     position: relative;
     margin-top: 200px;
     height: 584px;
-    z-index: -2;
+    z-index: 1;
 }
 
 .white_text , .black_text{
@@ -20,7 +20,7 @@
     font-family: 'Inter', sans-serif;
     color: white;
     text-align: center;
-    z-index: -1;
+    user-select: none;
 }
 
 .white_text{

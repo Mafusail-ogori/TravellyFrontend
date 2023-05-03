@@ -23,7 +23,7 @@
     transition: 0.5s;
     background-color: #4d69ff;
     color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 3px 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px;
     fill: #ffffff;
 }
 

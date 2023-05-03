@@ -1,8 +1,10 @@
-import styles from './Search.module.css'
+import FormCard from "./FormCard";
+import Input from "./Input";
+import Nature from '../assets/photos/Nature.jpg'
+const SearchBar = () => {
 
-const SearchBar = (props) => {
-    return <div className={styles.searchBar_container}>
-        <input className={styles.searchBar_inputField} type= {props.type} placeholder={props.placeholder}/>
-    </div>
+    return <FormCard backgroundImg = {Nature}>
+        <Input type =  "text" placeholder="Куди?"/>
+    </FormCard>
 }
 export default SearchBar;

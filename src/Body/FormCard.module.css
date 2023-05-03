@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #535353;
+    background-size: cover;
+    border-radius: 20px;
+    width: 1085px;
+    height : 45%;
+    z-index: 2;
+}

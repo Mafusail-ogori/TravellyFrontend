@@ -3,14 +3,14 @@
 .header{
     display: flex;
     flex-direction: row;
-    align-self: center;
+    justify-content: space-evenly;
+    align-items: center;
     background-color: #ffffff;
     width: 100%;
-    padding-left: 289px;
-    padding-right: 289px;
     position: fixed;
     color: black;
-    gap: 370px;
+    padding: 5px 0;
+    z-index: 2;
 }
 
 .header_logo_text{
