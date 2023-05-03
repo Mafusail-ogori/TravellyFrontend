@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+.searchBar_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../assets/photos/Nature.jpg");
+    background-size: cover;
+    border-radius: 20px;
+    width: 1085px;
+    height: 245px;
+    z-index: 1;
+}
+
+.searchBar_inputField{
+    padding-left: 15px;
+    display: flex;
+    height: 75px;
+    width: 750px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 3px 0;
+    z-index: 2;
+}
+
+.searchBar_inputField::placeholder{
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: #C4C5C7;
+}

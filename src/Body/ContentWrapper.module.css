@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
 .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    background-color: #8194FF;
     margin-top: 200px;
     height: 584px;
     z-index: -2;
