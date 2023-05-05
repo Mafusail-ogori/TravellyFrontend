@@ -6,7 +6,7 @@
     width: 750px;
     border: none;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 3px 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 5px 3px;
     z-index: 2;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
