@@ -6,7 +6,6 @@ import Carousel from "./Body/Slider/Carousel";
 function App() {
     return (
         <>
-
             <Header/>
             <Body/>
             <Footer/>

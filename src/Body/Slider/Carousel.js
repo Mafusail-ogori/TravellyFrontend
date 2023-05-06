@@ -1,62 +1,47 @@
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
+import "swiper/css/effect-cards";
 
-import "./Carousel.css";
-import { EffectCoverflow} from "swiper";
+import styles from "./Carousel.module.css";
+import { EffectCards } from "swiper";
 
-const Carousel = () =>  {
+const Carousel = () => {
     return (
         <>
             <Swiper
-                effect={"coverflow"}
+                effect={"cards"}
                 grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={"auto"}
-                coverflowEffect={{
-                    rotate: 100,
-                    stretch: 0,
-                    depth: 1000,
-                    modifier: 1,
-                    slideShadows: true,
-                }}
-                modules={[EffectCoverflow]}
-                className="mySwiper"
+                modules={[EffectCards]}
+                className={styles.swiper}
             >
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                <SwiperSlide className={styles.swiper_slide}>
+                    <p className={styles.swiper_title}>Matterhorn</p>
+                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
+                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
+                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
+                        summits in the Alps and Europe</p>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                <SwiperSlide className={styles.swiper_slide}>   <p className={styles.swiper_title}>Matterhorn</p>
+                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
+                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
+                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
+                        summits in the Alps and Europe</p>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                <SwiperSlide className={styles.swiper_slide}>   <p className={styles.swiper_title}>Matterhorn</p>
+                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
+                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
+                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
+                        summits in the Alps and Europe</p>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                <SwiperSlide className={styles.swiper_slide}>   <p className={styles.swiper_title}>Matterhorn</p>
+                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
+                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
+                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
+                        summits in the Alps and Europe</p>
                 </SwiperSlide>
             </Swiper>
         </>
     );
 }
-
-
 export default Carousel

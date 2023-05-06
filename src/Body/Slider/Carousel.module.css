@@ -1,0 +1,48 @@
+.swiper {
+    width: 70%;
+    height: 350px;
+}
+
+.swiper_slide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 10px 4px;
+    padding: 50px;
+    background-color: rgba(0,0,0,0.3);
+    background-blend-mode: multiply;
+}
+
+.swiper_title{
+    text-align: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.swiper_description{
+    text-align: left;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.swiper_slide:nth-child(1n) {
+    background-image: url("../../assets/photos/Matterhorn.jpg");
+}
+
+.swiper_slide:nth-child(2n) {
+    background-image: url("../../assets/photos/Maldives.jpg");
+}
+
+.swiper_slide:nth-child(3n) {
+    background-image: url("../../assets/photos/Nature.jpg");
+}
+
+.swiper_slide:nth-child(4n) {
+    background-image: url("../../assets/photos/Switzerland.jpg");
+}
