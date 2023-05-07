@@ -1,16 +1,20 @@
 import Header from "./Header/Header";
-import Body from "./Body/Body";
 import Footer from "./Footer/Footer";
-import Carousel from "./Body/Slider/Carousel";
+import {Route, Routes} from 'react-router-dom'
+import AppRoutes from "./AppRoutes";
 
-function App() {
+const App = () => {
     return (
         <>
             <Header/>
-            <Body/>
+                <Routes>
+                    {AppRoutes.map((route, index) => {
+                        const {element, ...rest} = route;
+                        return <Route key={index} {...rest} element={element}/>;
+                    })}
+                </Routes>
             <Footer/>
         </>
     );
 }
-
 export default App;

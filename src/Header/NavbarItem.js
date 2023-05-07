@@ -1,13 +1,13 @@
-import styles from './HeaderItem.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from './NavbarItem.module.css'
+import {Link, NavLink} from "react-router-dom";
 
 const NavbarItem = (props) => {
-    return <a href = {props.link}>
-    <button className={styles.header_item_wrapper}>
-        <i className={props.className}></i>
+    return <NavLink tag = {Link} to = {props.link} className={styles.navbar_item_link}>
+    <button className={styles.navbar_item_wrapper}>
+        <i className={props.className}/>
         <p>{props.title}</p>
     </button>
-    </a>
+    </NavLink>
 }
 
 export default NavbarItem;

@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap');
-
-
-.header_item_wrapper{
+.navbar_item_wrapper{
     display: flex;
     flex-direction: row;
     border-radius: 15px;
@@ -17,7 +14,7 @@
     height: 45px;
     border: none;
 }
-.header_item_wrapper:hover{
+.navbar_item_wrapper:hover{
     border-radius: 15px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -27,7 +24,11 @@
     fill: #ffffff;
 }
 
-.header_item_icon{
+.navbar_item_icon{
     width: 30px;
     height: 30px;
+}
+
+.navbar_item_link{
+    text-decoration: none;
 }
