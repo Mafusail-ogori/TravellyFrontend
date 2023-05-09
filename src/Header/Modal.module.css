@@ -9,7 +9,7 @@
     }
 }
 
-.modal{
+.modal_login, .modal_signUp{
     animation-name: appearance;
     animation-duration: 0.5s;
     animation-iteration-count: initial;
@@ -26,4 +26,39 @@
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 10px 5px;
     z-index: 100;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.modal_login{
+    height: 60%;
+    width: 25%;
+}
+
+.modal_signUp{
+    height: 80%;
+    width: 25%;
+}
+
+.modal_signUp_text{
+    color: #535353;
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+a{
+    color:#8194FF;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px){
+    .modal{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .modal{
+        width: 95%;
+    }
 }
