@@ -6,6 +6,6 @@ const Input = (props) =>{
     const inputHandler = (event) => {
         setInput(event.target.value)
     }
-    return  <input className={styles.inputField} type = {props.type} placeholder={props.placeholder} onChange={inputHandler}/>
+    return  <input style = {{height : props.height, fontSize: props.fontSize}} className={styles.inputField} type = {props.type} placeholder={props.placeholder} required onChange={inputHandler}/>
 }
 export default Input
