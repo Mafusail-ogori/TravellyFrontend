@@ -22,11 +22,11 @@ const Navbar = () => {
     return <div className={styles.navbar}>
         {isModal && ReactDOM.createPortal(<Modal onClose={onClick}/>,
             document.getElementById("modal"))}
-        <NavbarItem className={"fa-solid fa-cart-shopping navbar_item_icon"}
-                    title="Кошик" link = ""/>
-        <NavbarItem buttonClickHandler = {buttonClickHandler} className={"fa-solid fa-bell navbar_item_icon"} title="Сповіщ."/>
+        <NavbarItem className={"fa-solid fa-cart-shopping navbar_item_icon"} title="Кошик" link = ""/>
+        <NavbarItem className={"fa-solid fa-bell navbar_item_icon"} title="Сповіщ."/>
         <NavbarItem className={"fa-solid fa-heart navbar_item_icon"} title="Лайк"/>
         <NavbarItem className={"fa-solid fa-pen navbar_item_icon"} title="Відгуки"/>
+        <NavbarItem buttonClickHandler = {buttonClickHandler} className={"fa-solid fa-user navbar_item_icon"} title = "Увійти"/>
     </div>
 }
 

@@ -6,6 +6,7 @@
     margin-top: 200px;
     height: 584px;
     z-index: 1;
+    width: 100%;
 }
 
 .white_text , .black_text{
@@ -15,16 +16,55 @@
     right: 0;
     left: 0;
     margin: auto;
-    color: white;
     text-align: center;
     user-select: none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
 
 .white_text{
+    color: white;
     top: 0;
 }
 
 .black_text{
     color: black;
     bottom: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .white_text , .black_text{
+        font-size: 180px;
+    }
+
+    .wrapper{
+        height: 500px;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .white_text , .black_text{
+        font-size: 120px;
+    }
+    .wrapper{
+        height: 450px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .white_text , .black_text{
+        font-size: 60px;
+    }
+    .wrapper{
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .white_text , .black_text{
+        font-size: 50px;
+    }
+    .wrapper{
+        height: 400px;
+    }
 }
