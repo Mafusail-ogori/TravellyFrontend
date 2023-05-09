@@ -1,4 +1,4 @@
-import ContentWrapper from "./ContentWrapper";
+import ContentWrapper from "../UI/ContentWrapper";
 import SearchBar from "./SearchBar";
 import Carousel from "./Slider/Carousel";
 

@@ -1,5 +1,5 @@
-import FormCard from "./FormCard";
-import Input from "./Input";
+import FormCard from "../UI/FormCard";
+import Input from "../UI/Input";
 import Nature from '../assets/photos/Nature.jpg'
 const SearchBar = () => {
 
