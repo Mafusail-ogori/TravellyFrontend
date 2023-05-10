@@ -1,6 +1,6 @@
 import Body from "./Body/Body";
 import Header from "./Header/Header";
-import LogInBody from "./LogInBody/LogInBody";
+import CartBody from "./Cart/CartBody";
 
 const AppRoutes = [
     {
@@ -8,8 +8,8 @@ const AppRoutes = [
         element: <Body/>
     },
     {
-        path: '/login',
-        element: <LogInBody/>
+        path: '/cart',
+        element: <CartBody/>
     }
 ]
 export default AppRoutes

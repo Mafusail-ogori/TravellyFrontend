@@ -4,11 +4,12 @@
     justify-content: center;
     background-color: #535353;
     background-size: cover;
-    border-radius: 20px;
     width: 50%;
-    height : 45%;
     z-index: 2;
+    border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 10px 4px;
+    flex-direction: column;
+    gap: 50px;
 }
 
 @media only screen and (max-width: 1200px){
