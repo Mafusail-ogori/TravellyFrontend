@@ -1,8 +1,6 @@
 import styles from './NavbarItem.module.css'
 import {Link, NavLink} from "react-router-dom";
-import {useState} from "react";
-import {Modal} from "reactstrap";
-import ReactDOM from "react-dom";
+
 
 const NavbarItem = (props) => {
 

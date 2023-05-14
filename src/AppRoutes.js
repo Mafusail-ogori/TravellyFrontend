@@ -1,5 +1,4 @@
 import Body from "./Body/Body";
-import Header from "./Header/Header";
 import CartBody from "./Cart/CartBody";
 
 const AppRoutes = [
