@@ -1,5 +1,6 @@
 import Body from "./Body/Body";
 import CartBody from "./Cart/CartBody";
+import CompanyLogin from "./CompanyLogin/CompanyLogin";
 
 const AppRoutes = [
     {
