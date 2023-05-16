@@ -4,7 +4,7 @@ import Nature from '../assets/photos/Nature.jpg'
 const SearchBar = () => {
 
     return <FormCard height = "50%" backgroundImg = {Nature}>
-        <Input type =  "text" placeholder="Куди?" fontSize = "20px"/>
+        <Input type =  "text" placeholder="Куди?" fontSize = "20px" status = "true"/>
     </FormCard>
 }
 export default SearchBar;

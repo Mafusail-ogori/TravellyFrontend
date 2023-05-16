@@ -1,4 +1,4 @@
-.inputField{
+.inputField, .errorInput{
     padding-left: 15px;
     display: flex;
     height: 75px;
@@ -10,6 +10,11 @@
     color: #7e7e7e;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    outline: none;
+}
+
+.inputField{
+    background-color: white;
 }
 
 .inputField::placeholder{
@@ -17,13 +22,14 @@
     color: #C4C5C7;
 }
 
-.inputField:focus{
-    outline: none;
-}
-
 .inputField:hover{
     -webkit-transition: 0.5s;
     transition: 0.5s;
     background-color: black;
+    color: white;
+}
+
+.errorInput{
+    background-color: #ffc1c1;
     color: white;
 }

@@ -9,6 +9,10 @@ const AppRoutes = [
     {
         path: '/cart',
         element: <CartBody/>
+    },
+    {
+        path: '/create_company',
+        element: <CompanyLogin/>
     }
 ]
 export default AppRoutes

@@ -3,6 +3,7 @@ import stylesLogo from "../Header.module.css"
 import Input from "../../UI/Input"
 import SubmitButton from "../../UI/SubmitButton"
 import  {useState} from "react"
+import {NavLink} from "react-router-dom";
 
 const ModalLogin = (props) =>{
     const [password, setPassword] = useState("");
@@ -40,6 +41,8 @@ const ModalLogin = (props) =>{
         <p className={styles.modal_signUp_text}>Немаєте акаунту? Ви завжди можете створити новий <a
             onClick={props.openSignUpModal}>ТУТ!</a></p>
         <SubmitButton text="ПІДТВЕРДИТИ" onClick = {validateUserHandler}/>
+        <p className={styles.modal_signUp_text}>Бажаєте увійти як компанія? Перейдіть <NavLink to = '/create_company'
+            onClick={props.openSignUpModal}>СЮДИ!</NavLink></p>
     </form>
 }
 

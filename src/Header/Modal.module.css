@@ -9,7 +9,7 @@
     }
 }
 
-.modal_login, .modal_signUp, .error_modal{
+.modal_login, .modal_signUp{
     animation-name: appearance;
     animation-duration: 0.5s;
     animation-iteration-count: initial;
@@ -30,12 +30,12 @@
     transition: 0.5s;
 }
 
-.modal_login, .error_modal{
+.modal_login {
     height: 80%;
     width: 30%;
 }
 
-.modal_signUp, .error_modal{
+.modal_signUp {
     height: 90%;
     width: 30%;
 }
@@ -51,22 +51,14 @@ a{
     cursor: pointer;
 }
 
-.error_modal{
-    background-color: #fa1335;
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-    color: white;
-}
-
 @media only screen and (max-width: 1200px){
-    .modal{
-        width: 50%;
+    .modal_login, .modal_signUp{
+        width: 70%;
     }
 }
 
 @media only screen and (max-width: 600px){
-    .modal{
+    .modal_login, .modal_signUp{
         width: 95%;
     }
 }
-

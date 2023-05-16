@@ -4,11 +4,11 @@ import Input from "../../UI/Input";
 import SubmitButton from "../../UI/SubmitButton";
 import {useState} from "react";
 
-const ModalSignUp  = (props) => {
+const ModalSignUp = (props) => {
     const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");
     const [login, setLogin] = useState("")
-    const mailInputHandler = (event) =>{
+    const mailInputHandler = (event) => {
         setMail(event.target.value)
     }
 
@@ -26,7 +26,7 @@ const ModalSignUp  = (props) => {
         login: login
     }
 
-    const [result, setResult] = useState(false);
+    const [result, setResult] = useState(true);
     const addUserHandler = async () => {
         const res = await fetch('http://localhost:8080/', {
             method: 'POST',
@@ -36,18 +36,20 @@ const ModalSignUp  = (props) => {
             }
         });
         const data = await res.json()
-        data.toString() === 'User added successfully' ? setResult(true) :  setResult(false);
+        data.message === 'User added successfully' ? setResult(true) : setResult(false);
+        console.log(data.message)
     }
 
-    return <form className={result ? styles.modal_signUp : styles.error_modal}>
-        <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")} alt="Image Not Found"></img>
+    return <form className={styles.modal_signUp}>
+        <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
+             alt="Image Not Found"></img>
         <p style={{textAlign: "left"}}>Створюй!</p>
-        <Input height="50px" placeholder="Електронна пошта" type="email" fontSize="15px" handler = {mailInputHandler}/>
-        <Input height="50px" placeholder="Логін" type="text" fontSize="15px" handler = {passwordInputHandler}/>
-        <Input height="50px" placeholder="Пароль" type="password" fontSize="15px" handler = {loginInputHandler}/>
+        <Input height="50px" placeholder="Електронна пошта" type="email" fontSize="15px" handler={mailInputHandler} status = {result}/>
+        <Input height="50px" placeholder="Логін" type="text" fontSize="15px" handler={passwordInputHandler} status = {result}/>
+        <Input height="50px" placeholder="Пароль" type="password" fontSize="15px" handler={loginInputHandler} status = {result}/>
         <p className={styles.modal_signUp_text}>Ви вже у спільноті? Поверніться <a
             onClick={props.openLogInModal}>НАЗАД!</a></p>
-        <SubmitButton text="ПІДТВЕРДИТИ" onClick = {addUserHandler}/>
+        <SubmitButton text="ПІДТВЕРДИТИ" onClick={addUserHandler}/>
     </form>
 }
 
