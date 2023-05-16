@@ -1,7 +1,6 @@
 .inputField, .errorInput{
     padding-left: 15px;
     display: flex;
-    height: 75px;
     width: 80%;
     border: none;
     border-radius: 20px;

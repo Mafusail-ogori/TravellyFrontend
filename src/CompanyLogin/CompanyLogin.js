@@ -3,6 +3,8 @@ import FormCard from "../UI/FormCard";
 import Input from "../UI/Input";
 import {useState} from "react";
 import RowerWrapper from "../UI/RowerWrapper";
+import styles from './CompanyLogin.module.css'
+import SubmitButton from "../UI/SubmitButton";
 
 
 const CompanyLogin = () => {
@@ -11,9 +13,8 @@ const CompanyLogin = () => {
 
     return <ContentWrapper whiteText="ВІДКРИВАЙ" blackText="МОЖЛИВІСТЬ" color="#FFCA42" height="800px">
         <FormCard height="500px">
-            <h1>ВВЕДІТЬ ДАНІ КОМПАНІЇ</h1>
-            <div style={{display: "flex", flexDirection: "row", justifyContent: "center" ,
-                width: "100%", height : "100%", alignItems: "center"}}>
+            <p className={styles.text}>ВВЕДІТЬ ДАНІ КОМПАНІЇ НИЖЧЕ</p>
+            <div className={styles.container}>
                 <RowerWrapper>
                     <Input height="60px" status = {status} type = "text" placeholder = "Назва компанії"/>
                     <Input height="60px" status = {status} type = "text" placeholder = "Ліцензія компанії"/>
@@ -25,6 +26,7 @@ const CompanyLogin = () => {
                     <Input height="60px" status = {status} type = "password" placeholder = "Пароль"/>
                 </RowerWrapper>
             </div>
+            <SubmitButton text = "ВІДПРАВИТИ" height = "50px"/>
         </FormCard>
     </ContentWrapper>
 }
