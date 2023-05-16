@@ -25,8 +25,10 @@ const ModalSignUp  = (props) => {
         password: password,
         login: login
     }
-    async function addUserHandler(){
-        const res = await fetch('http://localhost:8080/',{
+
+    const [result, setResult] = useState(false);
+    const addUserHandler = async () => {
+        const res = await fetch('http://localhost:8080/', {
             method: 'POST',
             body: JSON.stringify(newUser),
             headers: {
@@ -34,10 +36,10 @@ const ModalSignUp  = (props) => {
             }
         });
         const data = await res.json()
-        console.log(data)
+        data.toString() === 'User added successfully' ? setResult(true) :  setResult(false);
     }
 
-    return <form className={styles.modal_signUp}>
+    return <form className={result ? styles.modal_signUp : styles.error_modal}>
         <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")} alt="Image Not Found"></img>
         <p style={{textAlign: "left"}}>Створюй!</p>
         <Input height="50px" placeholder="Електронна пошта" type="email" fontSize="15px" handler = {mailInputHandler}/>
