@@ -48,7 +48,7 @@ const ModalSignUp = (props) => {
         <Input height="50px" placeholder="Логін" type="text" fontSize="15px" handler={passwordInputHandler} status = {result}/>
         <Input height="50px" placeholder="Пароль" type="password" fontSize="15px" handler={loginInputHandler} status = {result}/>
         <p className={styles.modal_signUp_text}>Ви вже у спільноті? Поверніться <a
-            onClick={props.openLogInModal}>НАЗАД!</a></p>
+            onClick={props.openLogInModal} className={styles.link}>НАЗАД!</a></p>
         <SubmitButton text="ПІДТВЕРДИТИ" onClick={addUserHandler}/>
     </form>
 }

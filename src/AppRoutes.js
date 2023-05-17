@@ -12,7 +12,7 @@ const AppRoutes = [
         element: <CartBody/>
     },
     {
-        path: '/create_company',
+        path: '/create-company',
         element: <CompanyLogin/>
     }
 ]
