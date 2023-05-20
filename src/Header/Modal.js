@@ -20,7 +20,7 @@ const Modal = (props) => {
             <ModalLogin openSignUpModal={openSignUpModal} onClick = {props.onClose}/>
         )}
         {currentModal === 'modalSignUp' && (
-            <ModalSignUp openLogInModal={openLogInModal}/>)}
+            <ModalSignUp openLogInModal={openLogInModal} onClick = {props.onClose}/>)}
     </Backdrop>
 }
 

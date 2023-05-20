@@ -26,9 +26,29 @@
     transition: 0.5s;
     background-color: black;
     color: white;
+    transform: scale(1.05);
 }
 
 .errorInput{
     background-color: #ffc1c1;
     color: white;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+}
+
+input[type=file]::file-selector-button:hover {
+    background: white;
+    color: black;
 }
