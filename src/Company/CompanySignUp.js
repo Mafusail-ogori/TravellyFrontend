@@ -4,7 +4,7 @@ import Input from "../UI/Input";
 import {useState} from "react";
 import RowerWrapper from "../UI/RowerWrapper";
 import styles from './CompanySignUp.module.css'
-import SubmitButton from "../UI/SubmitButton";
+import Button from "../UI/Button";
 import axios from "axios";
 
 
@@ -89,7 +89,7 @@ const CompanySignUp = () => {
                            handler={passwordInputHandler}/>
                 </RowerWrapper>
             </div>
-            <SubmitButton text="ВІДПРАВИТИ" height="50px"/>
+            <Button text="ВІДПРАВИТИ" height="50px"/>
         </FormCard>
     </ContentWrapper>
 }

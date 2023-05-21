@@ -1,7 +1,7 @@
 import styles from "../Modal.module.css";
 import stylesLogo from "../Header.module.css";
 import Input from "../../UI/Input";
-import SubmitButton from "../../UI/SubmitButton";
+import Button from "../../UI/Button";
 import {useState} from "react";
 import axios from "axios";
 
@@ -67,7 +67,7 @@ const ModalSignUp = (props) => {
                status={status}/>
         <p className={styles.modal_signUp_text}>Ви вже у спільноті? Поверніться <a
             onClick={props.openLogInModal} className={styles.link}>НАЗАД!</a></p>
-        <SubmitButton text="ПІДТВЕРДИТИ" onClick={addUserHandler}/>
+        <Button text="ПІДТВЕРДИТИ" onClick={addUserHandler}/>
     </form>
 }
 

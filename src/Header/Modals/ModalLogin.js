@@ -1,16 +1,15 @@
 import styles from "../Modal.module.css"
 import stylesLogo from "../Header.module.css"
 import Input from "../../UI/Input"
-import SubmitButton from "../../UI/SubmitButton"
+import Button from "../../UI/Button"
 import {useState} from "react"
-import {NavLink} from "react-router-dom";
+import {Form, NavLink} from "react-router-dom";
 import axios from "axios";
 import localStorage from 'localStorage'
 
 const ModalLogin = (props) => {
     const [password, setPassword] = useState("");
     const [login, setLogin] = useState("")
-    const [status, setStatus] = useState(true)
     const loginInputHandler = (event) => {
         setLogin(event.target.value)
     }
@@ -45,9 +44,7 @@ const ModalLogin = (props) => {
 
     console.log(localStorage.getItem('token'))
 
-    return <form className={styles.modal_login} onSubmit={(e) => {
-        e.preventDefault()
-    }}>
+    return <form className={styles.modal_login} method="post">
         <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
              alt="Image Not Found"></img>
         <p className={status ? styles.hidden : styles.failure}>Помилка реєстрації, помилковий логін або пароль</p>
@@ -58,7 +55,7 @@ const ModalLogin = (props) => {
                status={status}/>
         <p className={styles.modal_signUp_text}>Немаєте акаунту? Ви завжди можете створити новий <a
             onClick={props.openSignUpModal} className={styles.link}>ТУТ!</a></p>
-        <SubmitButton text="ПІДТВЕРДИТИ" onClick={validateUserHandler}/>
+        <Button type = "submit" text="ПІДТВЕРДИТИ" onClick={validateUserHandler}/>
         <p className={styles.modal_signUp_text}>Бажаєте увійти як компанія? Перейдіть
             <NavLink onClick={props.onClick} to='/create-company'
                      className={styles.link}> СЮДИ!</NavLink>
