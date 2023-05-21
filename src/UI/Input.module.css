@@ -30,7 +30,7 @@
 }
 
 .errorInput{
-    background-color: #ffc1c1;
+    background-color: black;
     color: white;
 }
 
@@ -45,7 +45,7 @@ input[type=file]::file-selector-button {
     transition: background .2s ease-in-out;
     justify-content: center;
     align-items: center;
-    margin-top: 12px;
+    font-weight: lighter;
 }
 
 input[type=file]::file-selector-button:hover {

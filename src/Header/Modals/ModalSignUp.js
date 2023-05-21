@@ -6,11 +6,11 @@ import {useState} from "react";
 import axios from "axios";
 
 const ModalSignUp = (props) => {
-    const [mail, setMail] = useState("");
-    const [password, setPassword] = useState("");
+    const [mail, setMail] = useState("")
+    const [password, setPassword] = useState("")
     const [login, setLogin] = useState("")
     const [selectedFile, setSelectedFile] = useState(null)
-    const [uploaded, setUploaded] = useState()
+    const [status, setStatus] = useState(true)
     const mailInputHandler = (event) => {
         setMail(event.target.value)
     }
@@ -27,8 +27,6 @@ const ModalSignUp = (props) => {
         setSelectedFile(event.target.files[0])
     }
 
-    const [result, setResult] = useState(true);
-
     const formData = new FormData();
     formData.append('mail', mail)
     formData.append('login', login)
@@ -38,10 +36,16 @@ const ModalSignUp = (props) => {
     const addUserHandler = async () => {
         await axios.post('http://localhost:8080/sign-up', formData)
             .then((res) => {
-                console.log(res.message)
+                if(res.message === 'Found same user'){
+                    setStatus(false)
+                }
+                else{
+                    setStatus(true)
+                }
             })
             .catch((e) => {
                 console.log(e)
+                setStatus(false)
             })
     }
 
@@ -50,16 +54,17 @@ const ModalSignUp = (props) => {
     }}>
         <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
              alt="Image Not Found"></img>
+        <p className={status ? styles.hidden : styles.failure}>Помилка створення, такий акаунт вже існує, або вказані не всі дані</p>
         <p>Створюй!</p>
         <Input height="50px" placeholder="Електронна пошта" type="email" fontSize="15px" handler={mailInputHandler}
-               status={result}/>
+               status={status}/>
         <Input height="50px" placeholder="Логін" type="text" fontSize="15px" handler={loginInputHandler}
-               status={result}/>
+               status={status}/>
         <Input height="50px" placeholder="Аватар" type="file" fontSize="15px" handler={imageInputHandler}
-               status={result}
+               status={status}
                accept=".png, .jpeg"/>
         <Input height="50px" placeholder="Пароль" type="password" fontSize="15px" handler={passwordInputHandler}
-               status={result}/>
+               status={status}/>
         <p className={styles.modal_signUp_text}>Ви вже у спільноті? Поверніться <a
             onClick={props.openLogInModal} className={styles.link}>НАЗАД!</a></p>
         <SubmitButton text="ПІДТВЕРДИТИ" onClick={addUserHandler}/>

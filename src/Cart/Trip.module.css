@@ -1,7 +1,9 @@
 .trip_image {
     height: 100%;
-    width: 28%;
+    width: 25%;
     border-radius: 20px;
+    background-position: center;
+    background-size: cover;
 }
 
 .trip_title {

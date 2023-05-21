@@ -3,12 +3,12 @@ import FormCard from "../UI/FormCard";
 import Input from "../UI/Input";
 import {useState} from "react";
 import RowerWrapper from "../UI/RowerWrapper";
-import styles from './CompanyLogin.module.css'
+import styles from './CompanySignUp.module.css'
 import SubmitButton from "../UI/SubmitButton";
 import axios from "axios";
 
 
-const CompanyLogin = () => {
+const CompanySignUp = () => {
     const [name, setName] = useState("")
     const [image, setImage] = useState()
     const [date, setDate] = useState(new Date())
@@ -67,8 +67,8 @@ const CompanyLogin = () => {
     //     })
     // }
 
-    return <ContentWrapper whiteText="ВІДКРИВАЙ" blackText="МОЖЛИВІСТЬ" color="#ffc42b" height="800px">
-        <FormCard height="60%">
+    return <ContentWrapper whiteText="ВІДКРИВАЙ" blackText="МОЖЛИВІСТЬ" color="#ffc42b" height="1000px">
+        <FormCard height="65%">
             <p className={styles.text}>ВВЕДІТЬ ДАНІ КОМПАНІЇ НИЖЧЕ</p>
             <div className={styles.container}>
                 <RowerWrapper>
@@ -94,4 +94,4 @@ const CompanyLogin = () => {
     </ContentWrapper>
 }
 
-export default CompanyLogin
+export default CompanySignUp

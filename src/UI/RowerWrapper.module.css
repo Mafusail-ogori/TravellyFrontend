@@ -1,9 +1,14 @@
 .rower{
     width: 50%;
-    height: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     justify-content: center;
+}
+
+@media only screen and (max-width: 1500px){
+    .rower{
+        width: 90%;
+    }
 }

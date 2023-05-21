@@ -5,10 +5,12 @@ import SubmitButton from "../../UI/SubmitButton"
 import {useState} from "react"
 import {NavLink} from "react-router-dom";
 import axios from "axios";
+import localStorage from 'localStorage'
 
 const ModalLogin = (props) => {
     const [password, setPassword] = useState("");
     const [login, setLogin] = useState("")
+    const [status, setStatus] = useState(true)
     const loginInputHandler = (event) => {
         setLogin(event.target.value)
     }
@@ -16,8 +18,6 @@ const ModalLogin = (props) => {
     const passwordInputHandler = (event) => {
         setPassword(event.target.value)
     }
-
-    const [status, setStatus] = useState(true)
 
     const validateUserHandler = async () => {
         await axios.post('http://localhost:8080/log-in', {
@@ -29,18 +29,28 @@ const ModalLogin = (props) => {
             }
         })
             .then((res) => {
-            console.log(res)
+                if(res.data.message){
+                    localStorage.setItem('token', res.data.message)
+                    setStatus(true)
+                }
+                else{
+                    setStatus(false)
+                }
         })
             .catch((e) => {
             console.log(e)
+                setStatus(false)
         })
     }
+
+    console.log(localStorage.getItem('token'))
 
     return <form className={styles.modal_login} onSubmit={(e) => {
         e.preventDefault()
     }}>
         <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
              alt="Image Not Found"></img>
+        <p className={status ? styles.hidden : styles.failure}>Помилка реєстрації, помилковий логін або пароль</p>
         <p style={{textAlign: "left"}}>З поверненням !</p>
         <Input height="50px" placeholder="Логін або електронна пошта" type="text" fontSize="15px"
                handler={loginInputHandler} status={status}/>

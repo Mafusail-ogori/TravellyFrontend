@@ -11,10 +11,12 @@
     flex-direction: column;
     padding: 50px;
     background-position: center;
+    gap: 50px;
 }
 
-@media only screen and (max-width: 1200px){
+@media only screen and (max-width: 1500px){
     .container{
         width: 95%;
+        gap: 20px;
     }
 }

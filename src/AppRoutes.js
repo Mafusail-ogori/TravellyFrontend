@@ -1,6 +1,6 @@
 import Body from "./Body/Body";
 import CartBody from "./Cart/CartBody";
-import CompanyLogin from "./CompanyLogin/CompanyLogin";
+import CompanySignUp from "./Company/CompanySignUp";
 
 const AppRoutes = [
     {
@@ -13,7 +13,13 @@ const AppRoutes = [
     },
     {
         path: '/create-company',
-        element: <CompanyLogin/>
+        element: <CompanySignUp/>
+    },
+    {
+        path: '/logged-user-page',
+        loader: () => {
+            
+        }
     }
 ]
 export default AppRoutes
