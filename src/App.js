@@ -1,5 +1,5 @@
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import Header from "./pages/Home/Header";
+import Footer from "./pages/Home/Footer";
 import {Route, Routes} from 'react-router-dom'
 import AppRoutes from "./AppRoutes";
 

@@ -1,5 +1,5 @@
 import styles from './Trip.module.css'
-import TripCard from "../UI/TripCard";
+import TripCard from "../../UI/TripCard";
 
 const Trip = (props) => {
     return <TripCard>

@@ -1,5 +1,5 @@
-import NavbarItem from "../Header/NavbarItem";
-import styles from "../Header/Navbar.module.css";
+import NavbarItem from "./NavbarItem";
+import styles from "./Navbar.module.css";
 import avatar from '../assets/photos/Switzerland.jpg'
 import classes from './LoggedUserNavbar.module.css'
 

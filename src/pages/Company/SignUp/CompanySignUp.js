@@ -1,10 +1,10 @@
-import ContentWrapper from "../UI/ContentWrapper";
-import FormCard from "../UI/FormCard";
-import Input from "../UI/Input";
+import ContentWrapper from "../../../UI/ContentWrapper";
+import FormCard from "../../../UI/FormCard";
+import Input from "../../../UI/Input";
 import {useState} from "react";
-import RowerWrapper from "../UI/RowerWrapper";
+import RowerWrapper from "../../../UI/RowerWrapper";
 import styles from './CompanySignUp.module.css'
-import Button from "../UI/Button";
+import Button from "../../../UI/Button";
 import axios from "axios";
 
 

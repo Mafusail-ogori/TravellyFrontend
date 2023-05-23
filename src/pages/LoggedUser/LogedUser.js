@@ -1,8 +1,8 @@
-import Body from "../Body/Body";
+import Body from "../Home/Body";
 
 const LogedUser = () => {
     return <>
-        <Body></Body>
+        <Body/>
     </>
 }
 

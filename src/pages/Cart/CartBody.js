@@ -1,4 +1,4 @@
-import ContentWrapper from "../UI/ContentWrapper";
+import ContentWrapper from "../../UI/ContentWrapper";
 import LogInForm from "./Cart";
 
 const CartBody = () =>{

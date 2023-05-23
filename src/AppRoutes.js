@@ -1,9 +1,9 @@
-import Body from "./Body/Body";
-import CartBody from "./Cart/CartBody";
-import CompanySignUp from "./Company/CompanySignUp";
+import Body from "./pages/Home/Body";
+import CartBody from "./pages/Cart/CartBody";
+import CompanySignUp from "./pages/Company/SignUp/CompanySignUp";
 import {redirect} from "react-router-dom";
-import LogedUser from "./LoggedUser/LogedUser";
-import Modal, {loginAction} from "./Header/Modal";
+import LogedUser from "./pages/LoggedUser/LogedUser";
+import Modal, {loginAction} from "./components/Modal";
 
 const AppRoutes = [
     {

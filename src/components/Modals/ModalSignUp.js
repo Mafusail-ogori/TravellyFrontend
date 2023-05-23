@@ -1,5 +1,5 @@
 import styles from "../Modal.module.css";
-import stylesLogo from "../Header.module.css";
+import stylesLogo from "../../pages/Home/Header.module.css";
 import Input from "../../UI/Input";
 import Button from "../../UI/Button";
 import {useState} from "react";
