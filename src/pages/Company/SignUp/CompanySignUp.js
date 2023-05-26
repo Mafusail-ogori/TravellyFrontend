@@ -8,6 +8,8 @@ import Button from "../../../UI/Button";
 import logo from '../../../assets/icons/logo.png'
 import classes from '../../Home/Header.module.css'
 import axios from "axios";
+import styling from '../../../components/Modal.module.css'
+import {NavLink} from "react-router-dom";
 
 
 const CompanySignUp = () => {
@@ -77,7 +79,8 @@ const CompanySignUp = () => {
     return <ContentWrapper whiteText="ВІДКРИВАЙ" blackText="МОЖЛИВІСТЬ" color="#ffc42b" height="1100px">
         <FormCard onSubmit = {addCompanyHandler}>
             <img src = {logo} className={classes.header_logo} alt="Not found"/>
-            <p>Неправильно введені </p>
+            <p className={status ? styling.hidden : styling.failure}>Неправильно введені дані, або ж така компанія вже існує</p>
+            <p className={success ? styling.success : styling.hidden}>Реєстрація пройшла успішно, тепер перейдіть на сторінку входження у акаунт</p>
             <p className={styles.text}>ВВЕДІТЬ ДАНІ КОМПАНІЇ НИЖЧЕ</p>
             <div className={styles.container}>
                 <RowerWrapper>
@@ -97,6 +100,10 @@ const CompanySignUp = () => {
                            handler={passwordInputHandler} label = "Пароль:"/>
                 </RowerWrapper>
             </div>
+            <p className={styling.modal_signUp_text}>У вас вже є акаунт? Перейдіть
+                <NavLink to='/company/log-in'
+                         className={styling.link}> СЮДИ!</NavLink>
+            </p>
             <Button type = "submit" text="ВІДПРАВИТИ"/>
         </FormCard>
     </ContentWrapper>

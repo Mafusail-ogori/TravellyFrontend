@@ -9,6 +9,17 @@
     }
 }
 
+@keyframes messageApperance {
+    0% {
+        opacity: 0%;
+        transform: translateY(-3rem);
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
 .modal_login, .modal_signUp{
     position: fixed;
     top: 50%;
@@ -67,7 +78,7 @@
 }
 
 .failure, .success{
-    animation-name: appearance;
+    animation-name: messageApperance;
     animation-duration: 300ms;
     font-size: 15px;
     padding: 10px;
