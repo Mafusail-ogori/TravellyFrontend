@@ -1,15 +1,21 @@
 .inputField, .errorInput{
-    padding-left: 15px;
     display: flex;
     width: 80%;
-    border: none;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 5px 3px;
+    border: 1px solid grey;
     z-index: 2;
     color: #7e7e7e;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    padding-left: 2%;
+}
+
+.input_container{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
 }
 
 .inputField{
@@ -34,21 +40,20 @@
     color: white;
 }
 
-input[type=file]::file-selector-button {
-    margin-right: 20px;
-    border: none;
-    background: black;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: background .2s ease-in-out;
-    justify-content: center;
-    align-items: center;
-    font-weight: lighter;
+.label_text{
+    font-size: 15px;
+    color: #3a3a3a;
+    margin-right: auto;
+    padding-left: 10%;
 }
 
-input[type=file]::file-selector-button:hover {
-    background: white;
-    color: black;
+input[type="file"]::file-selector-button {
+    cursor: pointer;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
 }

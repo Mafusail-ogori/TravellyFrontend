@@ -13,9 +13,6 @@ const Navbar = () => {
     }
 
     const onClick = (event) => {
-        if(!event.target.classList.contains(styleBackDrop.backdrop)){
-            return;
-        }
         setIsModal(false);
     }
 

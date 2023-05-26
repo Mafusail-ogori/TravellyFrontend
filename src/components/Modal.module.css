@@ -1,20 +1,22 @@
 @keyframes appearance {
     0%{
         opacity: 0;
-        transform: translateY(-3rem);
+        transform: translate(-50%, -60%);
     }
     100%{
         opacity: 100%;
-        transform: translateY(0);
+        transform:  translate(-50%, -50%);
     }
 }
 
 .modal_login, .modal_signUp{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation-name: appearance;
     animation-duration: 0.5s;
     animation-iteration-count: initial;
-    height: 60%;
-    width: 25%;
     background-color: white;
     gap: 30px;
     display: flex;
@@ -32,12 +34,12 @@
 
 .modal_login {
     height: 80%;
-    width: 30%;
+    width: 35%;
 }
 
 .modal_signUp {
-    height: 90%;
-    width: 30%;
+    height: 100%;
+    width: 35%;
 }
 
 .modal_signUp_text{
@@ -52,6 +54,37 @@
     text-decoration: none;
 }
 
+.hidden{
+    display: none;
+    color: transparent;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    line-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.failure, .success{
+    animation-name: appearance;
+    animation-duration: 300ms;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: lighter;
+}
+
+.failure{
+    border: 1px solid red;
+    color: black;
+}
+
+.success{
+    border: 1px solid #66DC56FF;
+    color: black;
+}
+
 @media only screen and (max-width: 1200px){
     .modal_login, .modal_signUp{
         width: 70%;
@@ -64,24 +97,10 @@
     }
 }
 
-.hidden{
-    color: transparent;
-    height: 0;
-    width: 0;
-    opacity: 0;
-    overflow: hidden;
-    line-height: 0;
-    padding: 0;
-    margin: 0;
-}
-
-.failure{
-    animation-name: appearance;
-    animation-duration: 300ms;
-    border: 1px solid red;
-    color: red;
+.label_text{
+    text-align: left;
     font-size: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: lighter;
+    color: #3a3a3a;
+    margin-right: auto;
+    padding-left: 10%;
 }

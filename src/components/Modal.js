@@ -14,13 +14,14 @@ const Modal = (props) => {
         setCurrentModal('modalLogin')
     }
 
-    return <Backdrop onClick={props.onClose}>
+    return <>
+        <Backdrop onClick={props.onClose}/>
         {currentModal === 'modalLogin' && (
-            <ModalLogin openSignUpModal={openSignUpModal} onClick = {props.onClose}/>
+            <ModalLogin openSignUpModal={openSignUpModal} onClose = {props.onClose}/>
         )}
         {currentModal === 'modalSignUp' && (
-            <ModalSignUp openLogInModal={openLogInModal} onClick = {props.onClose}/>)}
-    </Backdrop>
+            <ModalSignUp openLogInModal={openLogInModal} onClose = {props.onClose}/>)}
+    </>
 }
 
 export default Modal

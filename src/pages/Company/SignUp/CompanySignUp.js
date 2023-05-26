@@ -5,16 +5,19 @@ import {useState} from "react";
 import RowerWrapper from "../../../UI/RowerWrapper";
 import styles from './CompanySignUp.module.css'
 import Button from "../../../UI/Button";
+import logo from '../../../assets/icons/logo.png'
+import classes from '../../Home/Header.module.css'
 import axios from "axios";
 
 
 const CompanySignUp = () => {
     const [name, setName] = useState("")
-    const [image, setImage] = useState()
+    const [selectedFile, setSelectedFile] = useState(null)
     const [date, setDate] = useState(new Date())
     const [mail, setMail] = useState("")
     const [employeeAmount, setEmployeeAmount] = useState(0)
     const [password, setPassword] = useState("")
+    const [success, setSuccess] = useState(false)
 
 
     const [status, setStatus] = useState(true)
@@ -24,8 +27,7 @@ const CompanySignUp = () => {
     }
 
     const imageInputHandler = (event) => {
-        setImage(event.target.files[0])
-        console.log(image)
+        setSelectedFile(event.target.files[0])
     }
 
     const dateInputHandler = (event) => {
@@ -44,52 +46,58 @@ const CompanySignUp = () => {
         setPassword(event.target.value)
     }
 
-    // name: name,
-    //     image: image,
-    //     creationDate: date,
-    //     mail: mail,
-    //     employeeAmount: employeeAmount,
-    //     password: password
-    //
-    // const formData = new FormData;
-    // formData.append('name', name, 'image', image)
-    // const addCompanyHandler = async () => {
-    //     await axios.post('http://localhost:8080', {
-    //         body:
-    //     }, {
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         }
-    //     }).then((res) => {
-    //         console.log(res)
-    //     }).catch((e) => {
-    //         console.log(e)
-    //     })
-    // }
+    const formData = new FormData();
 
-    return <ContentWrapper whiteText="ВІДКРИВАЙ" blackText="МОЖЛИВІСТЬ" color="#ffc42b" height="1000px">
-        <FormCard height="65%">
+    formData.append('date', date)
+    formData.append('email', mail)
+    formData.append('employeeAmount', employeeAmount)
+    formData.append('password', password)
+    formData.append('name', name)
+    formData.append('image', selectedFile)
+
+    const addCompanyHandler = async (event) => {
+        event.preventDefault()
+        await axios.post('http://localhost:8080/company/create-company', formData)
+            .then((res) => {
+                if (res.message === 'Found same company') {
+                    setStatus(false)
+                    setSuccess(false)
+                } else {
+                    setStatus(true)
+                    setSuccess(true)
+                }
+            })
+            .catch((e) => {
+                console.log(e)
+                setStatus(false)
+                setSuccess(false)
+            })
+    }
+
+    return <ContentWrapper whiteText="ВІДКРИВАЙ" blackText="МОЖЛИВІСТЬ" color="#ffc42b" height="1100px">
+        <FormCard onSubmit = {addCompanyHandler}>
+            <img src = {logo} className={classes.header_logo} alt="Not found"/>
+            <p>Неправильно введені </p>
             <p className={styles.text}>ВВЕДІТЬ ДАНІ КОМПАНІЇ НИЖЧЕ</p>
             <div className={styles.container}>
                 <RowerWrapper>
                     <Input fontSize="14px" height="60px" status={status} type="text" placeholder="Назва компанії"
-                           handler={nameInputHandler}/>
+                           handler={nameInputHandler} label = "Назва компанії:"/>
                     <Input height="60px" status={status} type="file" placeholder="Логотип компанії"
-                           accept="image/png, image/jpeg"
-                           handler={imageInputHandler}/>
+                           handler = {imageInputHandler} accept="image/png, image/jpeg" label = "Логотип компанії:"/>
                     <Input fontSize="14px" height="60px" status={status} type="date" placeholder="Дата заснування"
-                           handler={dateInputHandler}/>
+                           handler={dateInputHandler} label = "Дата заснування:"/>
                 </RowerWrapper>
                 <RowerWrapper>
                     <Input fontSize="14px" height="60px" status={status} type="email" placeholder="Електронна скринька"
-                           handler={mailInputHandler}/>
+                           handler={mailInputHandler} label = "Електронна скринька:"/>
                     <Input fontSize="14px" height="60px" status={status} type="number"
-                           placeholder="Кількість працівників" handler={employeeInputHandler}/>
+                           placeholder="Кількість працівників" handler={employeeInputHandler} label = "Кількість працівників:"/>
                     <Input fontSize="14px" height="60px" status={status} type="password" placeholder="Пароль"
-                           handler={passwordInputHandler}/>
+                           handler={passwordInputHandler} label = "Пароль:"/>
                 </RowerWrapper>
             </div>
-            <Button text="ВІДПРАВИТИ" height="50px"/>
+            <Button type = "submit" text="ВІДПРАВИТИ"/>
         </FormCard>
     </ContentWrapper>
 }

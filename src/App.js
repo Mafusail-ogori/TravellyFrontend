@@ -1,21 +1,23 @@
-import Header from "./pages/Home/Header";
-import Footer from "./pages/Home/Footer";
-import {Route, Routes} from 'react-router-dom'
-import AppRoutes from "./AppRoutes";
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import RootLayout from "./layouts/RootLayout";
+import Body from "./pages/Home/Body";
+import CartBody from "./pages/Cart/CartBody";
+import CompanySignUp from "./pages/Company/SignUp/CompanySignUp";
+import LoggedUserBody from "./pages/LoggedUser/LoggedUserBody";
 
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <RootLayout/>,
+        children: [
+            {path: '', element: <Body/>},
+            {path: 'cart', element: <CartBody/>},
+            {path: 'create-company', element: <CompanySignUp/>},
+            {path: 'logged-user-page', element: <LoggedUserBody/>}
+        ]
+    }
+])
 const App = () => {
-    return (
-        <>
-            <Header/>
-            <div id = "modal"></div>
-                <Routes>
-                    {AppRoutes.map((route, index) => {
-                        const {element, ...rest} = route;
-                        return <Route key={index} {...rest} element={element}/>;
-                    })}
-                </Routes>
-            <Footer/>
-        </>
-    );
+    return <RouterProvider router = {router}/>
 }
 export default App;

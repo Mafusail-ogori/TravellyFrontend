@@ -20,33 +20,20 @@ const Carousel = () => {
                 className={styles.swiper}
                 loop={true}
             >
+                <SwiperSlide className={styles.swiper_slide} style = {{backgroundImage: `url(${Switzerland})`}}>
+                    <p className={styles.swiper_title}>Швейцарія ★★★★★</p>
+                    <p className={styles.swiper_description}>Неймовірна країна з не менш неймовірної природою. Відчуй історію незайману сторіччями,
+                        доторкнись до мальовничих Фьйордів. Досутпно за знижкою у 5%*</p>
+                </SwiperSlide>
                 <SwiperSlide className={styles.swiper_slide} style = {{backgroundImage: `url(${Maldives})`}}>
-                    <p className={styles.swiper_title}>Matterhorn</p>
-                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
-                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
-                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
-                        summits in the Alps and Europe</p>
+                    <p className={styles.swiper_title}>Мальдіви ★★★★★</p>
+                    <p className={styles.swiper_description}>Казкові острови прямо у серці Індійського океану не залишать байдужим нікого. Відчуй райський дотик смарагдової води,
+                        а також ніжний бриз. Улюблена путівка наших клієнтів!</p>
                 </SwiperSlide>
                 <SwiperSlide className={styles.swiper_slide} style = {{backgroundImage: `url(${Matterhorn})`}}>
-                    <p className={styles.swiper_title}>Matterhorn</p>
-                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
-                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
-                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
-                        summits in the Alps and Europe</p>
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiper_slide} style = {{backgroundImage: `url(${Switzerland})`}}>
-                    <p className={styles.swiper_title}>Matterhorn</p>
-                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
-                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
-                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
-                        summits in the Alps and Europe</p>
-                </SwiperSlide>
-                <SwiperSlide className={styles.swiper_slide} style = {{backgroundImage: `url(${Nature})`}}>
-                    <p className={styles.swiper_title}>Matterhorn</p>
-                    <p className={styles.swiper_description}>The Matterhorn is a mountain of the Alps, straddling the main watershed and border between
-                        Switzerland and Italy. It is a large, near-symmetric pyramidal peak in the extended Monte Rosa
-                        area of the Pennine Alps, whose summit is 4,478 metres high, making it one of the highest
-                        summits in the Alps and Europe</p>
+                    <p className={styles.swiper_title}>Матергорн ★★★★★</p>
+                    <p className={styles.swiper_description}>Матергорн це гора, що знаходиться на кордоні між Францією та Швейцарією, та є найижчою
+                        вершиною Швейцарських Альп. Неймовірна біла вершина, вируши на пошуки прекрасного вже зараз.</p>
                 </SwiperSlide>
             </Swiper>
         </>

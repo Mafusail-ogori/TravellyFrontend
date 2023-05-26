@@ -1,9 +1,9 @@
 import Body from "../Home/Body";
 
-const LogedUser = () => {
+const LoggedUserBody = () => {
     return <>
         <Body/>
     </>
 }
 
-export default LogedUser
+export default LoggedUserBody
