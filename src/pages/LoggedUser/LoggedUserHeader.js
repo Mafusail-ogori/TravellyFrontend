@@ -12,3 +12,4 @@ const LoggedUserHeader = () => {
     </div>
 }
 
+export default LoggedUserHeader

@@ -2,10 +2,9 @@ import Footer from "../pages/Home/Footer";
 import {Outlet} from "react-router-dom";
 import Header from "../pages/Home/Header";
 
-const RootLayout = () => {
+const UserLayout = () => {
     return <>
-        <Header isLogged={false}/>
-        <div id = "modal"></div>
+       <Header isLogged = {true}/>
         <main>
             <Outlet/>
         </main>
@@ -13,4 +12,4 @@ const RootLayout = () => {
     </>
 }
 
-export default RootLayout
+export default UserLayout

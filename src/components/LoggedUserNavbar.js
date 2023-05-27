@@ -10,6 +10,7 @@ const LoggedUserNavbar = () => {
         <NavbarItem className={"fa-solid fa-heart navbar_item_icon"} title="Лайк"/>
         <NavbarItem className={"fa-solid fa-pen navbar_item_icon"} title="Відгуки"/>
         <img src={avatar} alt="Not found" className={classes.user_avatar}/>
+        <NavbarItem className = {"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"} title="Вийти"/>
     </div>
 }
 

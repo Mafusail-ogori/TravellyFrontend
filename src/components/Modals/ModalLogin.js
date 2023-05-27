@@ -5,7 +5,8 @@ import Button from "../../UI/Button"
 import {NavLink, useNavigate} from "react-router-dom";
 import axios from "axios";
 import localStorage from "localStorage";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../storage/AuthContext";
 
 const ModalLogin = (props) => {
 
@@ -22,6 +23,7 @@ const ModalLogin = (props) => {
     }
 
     const navigation = useNavigate()
+    const {setIsLogged} = useContext(AuthContext)
 
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -38,7 +40,8 @@ const ModalLogin = (props) => {
                     localStorage.setItem('token', res.data.message)
                     setStatus(true)
                     console.log(localStorage.getItem('token'))
-                    navigation('/logged-user-page')
+                    navigation('/')
+                    setIsLogged(true)
                     props.onClose()
                 }
             })
