@@ -1,22 +1,22 @@
 import React, {useEffect, useState} from "react";
-import getToken from "../util/GetToken";
+import getRole from "../util/GetRole";
 
 export const AuthContext = React.createContext({
-    isLogged: false,
-    setIsLogged: () => {
+    role: "none",
+    setRole: () => {
     }
 })
 
 const AuthContextProvider = (props) => {
-    const [isLogged, setIsLogged] = useState(false)
+    const [role, setRole] = useState("none")
 
     useEffect(() => {
-        if (getToken()) {
-            setIsLogged(true)
+        if (getRole()) {
+            setRole(getRole())
         }
     }, [])
 
-    return <AuthContext.Provider value={{isLogged: isLogged, setIsLogged: setIsLogged}}>
+    return <AuthContext.Provider value={{role: role, setRole: setRole}}>
         {props.children}
     </AuthContext.Provider>
 }

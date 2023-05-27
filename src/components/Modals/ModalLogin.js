@@ -23,7 +23,7 @@ const ModalLogin = (props) => {
     }
 
     const navigation = useNavigate()
-    const {setIsLogged} = useContext(AuthContext)
+    const {setRole} = useContext(AuthContext)
 
     const submitHandler = async (event) => {
         event.preventDefault()
@@ -38,10 +38,11 @@ const ModalLogin = (props) => {
             .then((res) => {
                 if (res.data.message) {
                     localStorage.setItem('token', res.data.message)
+                    localStorage.setItem('role', 'user')
                     setStatus(true)
                     console.log(localStorage.getItem('token'))
                     navigation('/')
-                    setIsLogged(true)
+                    setRole('user')
                     props.onClose()
                 }
             })

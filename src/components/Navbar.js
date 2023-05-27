@@ -1,15 +1,17 @@
 import NavbarItem from "./NavbarItem";
 import styles from "./Navbar.module.css"
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import Modal from "./Modal";
-import avatar from "../assets/photos/Switzerland.jpg";
-import classes from "./LoggedUserNavbar.module.css";
 import {AuthContext} from "../storage/AuthContext";
+import getToken from "../util/GetToken";
+import localStorage from "localStorage";
 
 
 const Navbar = () => {
-    const {isLogged} = useContext(AuthContext)
+    const {role, setRole} = useContext(AuthContext)
+    const [loaded, setLoaded] = useState('');
+
 
     const [isModal, setIsModal] = useState(false);
     const buttonClickHandler = () => {
@@ -20,6 +22,36 @@ const Navbar = () => {
         setIsModal(false);
     }
 
+    const logOutHandler = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('role')
+        setRole("none");
+    }
+
+    useEffect(() => {
+        const fetchImage = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/logged-user-page-avatar', {
+                    headers: {
+                        'Authorization': `Bearer ${getToken()}`,
+                    },
+                });
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const objectURL = URL.createObjectURL(blob);
+                    setLoaded(objectURL);
+                } else {
+                    console.error('Error fetching image:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+        };
+
+        fetchImage();
+    });
+
+    console.log(loaded)
     return <div className={styles.navbar}>
         {isModal && ReactDOM.createPortal(<Modal onClose={onClick}/>,
             document.getElementById("modal"))}
@@ -27,11 +59,13 @@ const Navbar = () => {
         <NavbarItem className={"fa-solid fa-bell navbar_item_icon"} title="Сповіщ."/>
         <NavbarItem className={"fa-solid fa-heart navbar_item_icon"} title="Лайк"/>
         <NavbarItem className={"fa-solid fa-pen navbar_item_icon"} title="Відгуки"/>
-        {!isLogged &&
+        {role === 'none' &&
             <NavbarItem buttonClickHandler={buttonClickHandler} className={"fa-solid fa-user navbar_item_icon"}
                         title="Увійти"/>}
-        {isLogged && <> <img src={avatar} alt="Not found" className={classes.user_avatar}/>
+        {role === 'user' && <>
+            <img src={loaded} alt="Not Found" className={styles.avatar}/>
             <NavbarItem className={"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"}
+                        buttonClickHandler = {logOutHandler}
                         title="Вийти"/> </>}
     </div>
 }
