@@ -10,7 +10,8 @@ import localStorage from "localStorage";
 
 const Navbar = () => {
     const {role, setRole} = useContext(AuthContext)
-    const [loaded, setLoaded] = useState('');
+    const [userLoaded, setUserLoaded] = useState('');
+    const [companyLoaded, setCompanyLoaded] = useState('')
 
 
     const [isModal, setIsModal] = useState(false);
@@ -29,7 +30,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        const fetchImage = async () => {
+        const fetchUserImage = async () => {
             try {
                 const response = await fetch('http://localhost:8080/user/logged-user-page-avatar', {
                     headers: {
@@ -39,7 +40,7 @@ const Navbar = () => {
                 if (response.ok) {
                     const blob = await response.blob();
                     const objectURL = URL.createObjectURL(blob);
-                    setLoaded(objectURL);
+                    setUserLoaded(objectURL);
                 } else {
                     console.error('Error fetching image:', response.statusText);
                 }
@@ -47,8 +48,30 @@ const Navbar = () => {
                 console.error('Error fetching image:', error);
             }
         };
-        fetchImage();
+        fetchUserImage();
     });
+
+    useEffect(() => {
+        const fetchCompanyImage = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/company/logged-company-page-avatar', {
+                    headers: {
+                        'Authorization': `Bearer ${getToken()}`,
+                    },
+                });
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const objectURL = URL.createObjectURL(blob);
+                    setCompanyLoaded(objectURL)
+                } else {
+                    console.error('Error fetching image:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+        };
+        fetchCompanyImage();
+    })
 
     return <div className={styles.navbar}>
         {isModal && ReactDOM.createPortal(<Modal onClose={onClick}/>,
@@ -70,7 +93,7 @@ const Navbar = () => {
                 <NavbarItem className={"fa-solid fa-bell navbar_item_icon"} title="Сповіщ."/>
                 <NavbarItem className={"fa-solid fa-heart navbar_item_icon"} title="Лайк"/>
                 <NavbarItem className={"fa-solid fa-pen navbar_item_icon"} title="Відгуки"/>
-                <img src={loaded} alt="Not Found" className={styles.avatar}/>
+                <img src={userLoaded} alt="Not Found" className={styles.avatar}/>
                 <NavbarItem className={"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"}
                             buttonClickHandler={logOutHandler}
                             title="Вийти"/>
@@ -80,7 +103,7 @@ const Navbar = () => {
                 <NavbarItem className={"fa-solid fa-money-bill navbar_item_icon"} title="Прибуток"/>
                 <NavbarItem className={"fa-solid fa-plus navbar_item_icon"} title="Додати"/>
                 <NavbarItem className={"fa-solid fa-eye navbar_item_icon"} title="Переглянути"></NavbarItem>
-                {/*<img src={loaded} alt="Not Found" className={styles.avatar}/>*/}
+                <img src={companyLoaded} alt="Not Found" className={styles.avatar}/>
                 <NavbarItem className={"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"}
                             buttonClickHandler={logOutHandler}
                             title="Вийти"/>
