@@ -59,7 +59,7 @@ const CompanySignUp = () => {
 
     const addCompanyHandler = async (event) => {
         event.preventDefault()
-        await axios.post('http://localhost:8080/company/create-company', formData)
+        await axios.post('http://localhost:8080/company/sign-up', formData)
             .then((res) => {
                 if (res.message === 'Found same company') {
                     setStatus(false)

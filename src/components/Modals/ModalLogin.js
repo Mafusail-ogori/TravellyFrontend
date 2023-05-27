@@ -25,9 +25,9 @@ const ModalLogin = (props) => {
     const navigation = useNavigate()
     const {setRole} = useContext(AuthContext)
 
-    const submitHandler = async (event) => {
+    const validateUser = async (event) => {
         event.preventDefault()
-        await axios.post('http://localhost:8080/log-in', {
+        await axios.post('http://localhost:8080/user/log-in', {
             login: login,
             password: password
         }, {
@@ -40,7 +40,6 @@ const ModalLogin = (props) => {
                     localStorage.setItem('token', res.data.message)
                     localStorage.setItem('role', 'user')
                     setStatus(true)
-                    console.log(localStorage.getItem('token'))
                     navigation('/')
                     setRole('user')
                     props.onClose()
@@ -52,7 +51,7 @@ const ModalLogin = (props) => {
             })
     }
 
-    return <form className={styles.modal_login} onSubmit={submitHandler}>
+    return <form className={styles.modal_login} onSubmit={validateUser}>
         <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
              alt="Image Not Found"></img>
         <p className={status ? styles.hidden : styles.failure}>Помилка реєстрації, помилковий логін або пароль</p>

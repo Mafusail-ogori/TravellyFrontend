@@ -35,7 +35,7 @@ const ModalSignUp = (props) => {
     formData.append('image', selectedFile)
 
     const addUserHandler = async () => {
-        await axios.post('http://localhost:8080/sign-up', formData)
+        await axios.post('http://localhost:8080/user/sign-up', formData)
             .then((res) => {
                 if (res.message === 'Found same user') {
                     setStatus(false)
