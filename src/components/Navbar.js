@@ -105,8 +105,8 @@ const Navbar = () => {
             </>}
         {role === 'company' &&
             <>
-                <NavbarItem className={"fa-solid fa-plus navbar_item_icon"} title="Додати" link = "/company/add"/>
-                <NavbarItem className={"fa-solid fa-eye navbar_item_icon"} title="Переглянути"/>
+                <NavbarItem className={"fa-solid fa-plus navbar_item_icon"} title="Додати" link = "/company/add-trip"/>
+                <NavbarItem className={"fa-solid fa-eye navbar_item_icon"} title="Переглянути" link = "/company/review-trip"/>
                 <NavbarItem className={"fa-solid fa-money-bill navbar_item_icon"} title="Прибуток"/>
                 <img src={companyLoaded} alt="Not Found" className={styles.avatar}/>
                 <NavbarItem className={"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"}

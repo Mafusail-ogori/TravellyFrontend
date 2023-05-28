@@ -6,6 +6,7 @@ import CompanySignUp from "./pages/Company/SignUp/CompanySignUp";
 import CompanyLogIn from "./pages/Company/LogIn/CompanyLogIn";
 import AuthContextProvider from "./storage/AuthContext";
 import NewTrip from "./pages/Company/AddTrip/NewTrip";
+import AllTrips from "./pages/Company/ReviewTrip/AllTrips";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
             {path: 'cart', element: <CartBody/>},
             {path: 'create-company', element: <CompanySignUp/>},
             {path: 'company/log-in', element: <CompanyLogIn/>},
-            {path: 'company/add', element: <NewTrip/>}
+            {path: 'company/add-trip', element: <NewTrip/>},
+            {path: 'company/review-trip', element: <AllTrips/>}
         ]
     }
 ])
