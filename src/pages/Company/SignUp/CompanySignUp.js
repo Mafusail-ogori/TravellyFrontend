@@ -61,13 +61,8 @@ const CompanySignUp = () => {
         event.preventDefault()
         await axios.post('http://localhost:8080/company/sign-up', formData)
             .then((res) => {
-                if (res.message === 'Found same company') {
-                    setStatus(false)
-                    setSuccess(false)
-                } else {
                     setStatus(true)
                     setSuccess(true)
-                }
             })
             .catch((e) => {
                 console.log(e)

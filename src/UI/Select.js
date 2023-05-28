@@ -7,7 +7,7 @@ const Select = (props) => {
                 className={props.status ? styles.inputField : styles.errorInput}
                 placeholder={props.placeholder} required onChange={props.handler}>
             {props.options.map((option) => (
-                <option value={option}>{option}</option>
+                <option className={styles.option} value={option}>{option}</option>
             ))}
         </select>
     </div>

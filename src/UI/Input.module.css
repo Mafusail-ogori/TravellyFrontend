@@ -58,3 +58,14 @@ input[type="file"]::file-selector-button {
     -moz-opacity: 0;
     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0)
 }
+
+.option {
+    background-color: black;
+    color: white;
+    transition: 300ms;
+}
+
+.option:hover {
+    background-color: white;
+    color: black;
+}

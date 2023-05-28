@@ -1,7 +1,6 @@
 import styles from './Header.module.css'
 import Navbar from "../../components/Navbar";
 import {NavLink} from "react-router-dom";
-import classes from '../../components/Navbar.module.css'
 
 const Header = ({isLogged}) => {
 

@@ -1,4 +1,4 @@
 export const boolean = [
-    'так',
-    'ні'
+    'Так',
+    'Ні'
 ]
