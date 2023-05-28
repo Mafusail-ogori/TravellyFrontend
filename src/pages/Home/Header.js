@@ -6,11 +6,11 @@ import classes from '../../components/Navbar.module.css'
 const Header = ({isLogged}) => {
 
     return <div className={styles.header}>
-        <div className={styles.logo_full}>
+        <NavLink to = '/' className={styles.logo_full}>
             <img className={styles.header_logo} src={require("../../assets/icons/logo.png")}
-                 alt="Image Not Found"></img>
-            <NavLink to='/' className={styles.header_logo_text}>Travelly!</NavLink>
-        </div>
+                 alt="Image Not Found"/>
+            <p className={styles.header_logo_text}>Travelly!</p>
+        </NavLink>
         <Navbar isLogged={isLogged}/>
     </div>
 }
