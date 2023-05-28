@@ -9,6 +9,7 @@
     outline: none;
     padding-left: 2%;
     border-radius: 3px;
+    resize: none;
 }
 
 .input_container{

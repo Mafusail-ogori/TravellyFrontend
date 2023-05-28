@@ -15,6 +15,7 @@ import {useState} from "react";
 import axios from "axios";
 import styling from "../../../components/Modal.module.css";
 import getToken from "../../../util/GetToken";
+import TextArea from "../../../UI/TextArea";
 
 const NewTrip = () => {
     const formData = new FormData()
@@ -33,6 +34,7 @@ const NewTrip = () => {
     const [price, setPrice] = useState(0.0)
     const [status, setStatus] = useState(true)
     const [success, setSuccess] = useState(false)
+    const [description, setDescription] = useState("")
 
     const nameInputHandler = (event) => {
         setName(event.target.value)
@@ -76,6 +78,10 @@ const NewTrip = () => {
         setPrice(event.target.value)
     }
 
+    const descriptionInputHandler = (event) => {
+        setDescription(event.target.value)
+    }
+
     formData.append('name', name)
     formData.append('amount', amount)
     formData.append('animal', animal)
@@ -89,6 +95,7 @@ const NewTrip = () => {
     formData.append('image', image)
     formData.append('price', price)
     formData.append('token', getToken())
+    formData.append('description', description)
 
     const addTripHandler = async (event) => {
         event.preventDefault()
@@ -104,7 +111,7 @@ const NewTrip = () => {
             })
     }
 
-    return <ContentWrapper color="#FFCA42" whiteText="ДОДАВАЙ" blackText="СТВОРЮЙ" height="1200px">
+    return <ContentWrapper color="#FFCA42" whiteText="ДОДАВАЙ" blackText="СТВОРЮЙ" height="1600px">
         <FormCard onSubmit={addTripHandler}>
             <img src={logo} className={classes.header_logo} alt="Not found"/>
             <p className={status ? styling.hidden : styling.failure}>Неправильно введені дані, або на такі дати вже існує така поїздка</p>
@@ -141,6 +148,7 @@ const NewTrip = () => {
                            status={status}/>
                 </RowerWrapper>
             </div>
+            <TextArea height = "100px" label = "Опис" placeholder = "Опис" fontSize = "14px" status = {status} handler = {descriptionInputHandler}/>
             <Button type="submit" text="ВІДПРАВИТИ"/>
         </FormCard>
     </ContentWrapper>
