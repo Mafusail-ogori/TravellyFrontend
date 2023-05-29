@@ -1,7 +1,6 @@
 
 import ContentWrapper from "../../UI/ContentWrapper";
 import ContentCard from "../../UI/ContentCard";
-import AllTrips from "../Company/ReviewTrip/AllTrips";
 import TripCard from "../../UI/TripCard";
 import {useContext} from "react";
 import {AuthContext} from "../../storage/AuthContext";

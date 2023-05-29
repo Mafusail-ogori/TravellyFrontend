@@ -1,26 +1,50 @@
 import styles from './TripCard.module.css'
-import photo from '../assets/photos/Nature.jpg'
+import {useEffect, useState} from "react";
 
-const TripCard = (props) =>{
+const TripCard = (props) => {
+    const [tripImage, setTripImage] = useState('')
+
+    useEffect(() => {
+        const fetchCompanyImage = async () => {
+            try {
+                const response = await fetch('http://localhost:8080/company/trip-image', {
+                    method: 'POST',
+                    body: JSON.stringify({id: props.id}),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const objectURL = URL.createObjectURL(blob);
+                    setTripImage(objectURL)
+                } else {
+                    console.error('Error fetching image:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+        };
+        fetchCompanyImage();
+    }, [])
+
+    console.log(tripImage)
     return <div className={styles.form_card}>
-        <img src = {photo} className={styles.photo}></img>
+        <img src={tripImage} className={styles.photo}></img>
         <div className={styles.info_container}>
+            <h2>{props.title} {props.price}<i className={"fa-solid fa-hryvnia-sign"}/></h2>
             <div className={styles.options_container}>
-                <h2>{props.title}</h2>
-                <h2>{props.price} <i className={"fa-solid fa-hryvnia-sign"}/></h2>
-            </div>
-            <div className={styles.options_container}>
-                <div>
-                    <p>Звідки: <span>{props.startCountry}</span></p>
-                    <p>Куди: <span>{props.endCountry}</span></p>
-                    <p>Готель: <span>{props.hotel}</span></p>
-                    <p>Трансфер: <span>{props.transfer}</span></p>
-                </div>
-                <div>
-                    <p>Починається: <span>{props.startDate}</span></p>
-                    <p>Закінчується: <span>{props.endDate}</span></p>
-                    <p>Що по їжі: <span>{props.food}</span></p>
-                </div>
+                <ul>
+                    <li>Звідки: <span>{props.startCountry}</span></li>
+                    <li>Куди: <span>{props.endCountry}</span></li>
+                    <li>Готель: <span>{props.hotel}</span></li>
+                    <li>Трансфер: <span>{props.transfer}</span></li>
+                </ul>
+                <ul>
+                    <li>Починається: <span>{props.startDate}</span></li>
+                    <li>Закінчується: <span>{props.endDate}</span></li>
+                    <li>Харчування: <span>{props.food}</span></li>
+                </ul>
             </div>
         </div>
     </div>

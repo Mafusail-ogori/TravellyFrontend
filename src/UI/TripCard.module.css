@@ -1,7 +1,8 @@
 .form_card{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-column-gap: 30px;
     flex-direction: row;
-    gap: 40px;
     padding: 40px;
     width: 100%;
     background-color: white;
@@ -29,11 +30,8 @@
 }
 
 .options_container{
-    gap: 60px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .options_container p{
