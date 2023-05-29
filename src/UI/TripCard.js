@@ -1,8 +1,9 @@
 import styles from './TripCard.module.css'
+import photo from '../assets/photos/Nature.jpg'
 
 const TripCard = (props) =>{
     return <div className={styles.form_card}>
-        <img src = {props.image} alt="Not fond"></img>
+        <img src = {photo} className={styles.photo}></img>
         <div className={styles.info_container}>
             <div className={styles.options_container}>
                 <h2>{props.title}</h2>
