@@ -10,4 +10,37 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0 10px 4px;
     justify-content: flex-start;
     align-items: flex-start;
+    transition: 0.3s;
+}
+
+.form_card:hover{
+    transition: 0.3s;
+    transform: scale(1.03);
+    background-color: black;
+    color: white;
+
+}
+
+.info_container{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+
+.options_container{
+    gap: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+
+.options_container p{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px
+}
+
+span{
+    color: #FFCA42;
 }
