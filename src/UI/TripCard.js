@@ -6,7 +6,6 @@ import Button from "./Button";
 import classes from '../components/Modal.module.css'
 import ModalPayment from "../components/Modals/ModalPayment";
 import ReactDOM from "react-dom";
-import Modal from "../components/Modal";
 import ModalAddCart from "../components/Modals/ModalAddCart";
 
 const TripCard = (props) => {
@@ -22,13 +21,18 @@ const TripCard = (props) => {
         setExpanded(false)
     }
 
-    const [isModal, setIsModal] = useState(false);
-    const buttonClickHandler = () => {
-        setIsModal(true);
+    const [isPayModal, setIsPayModal] = useState(false);
+    const [isAmountModal , setIsAmountModal] = useState(false)
+    const payButtonClickHandler = () => {
+        setIsPayModal(true);
+    }
+
+    const addButtonClickHandler = () => {
+        setIsAmountModal(true)
     }
 
     const onClick = (event) => {
-        setIsModal(false);
+        setIsPayModal(false);
     }
 
     useEffect(() => {
@@ -55,22 +59,6 @@ const TripCard = (props) => {
         fetchCompanyImage();
     }, [])
 
-    const chooseTripHandler = async () => {
-        await axios.post('http://localhost:8080/user/user-choose-trip', {
-            tripId: props.id,
-            //додати amount, для передачі на бек інформації про кількість віднятих квитків
-        }, {
-            headers: {
-                'Authorization': `Bearer ${getToken()}`,
-                'Content-Type': 'application/json'
-            }
-        }).then((res) => {
-            res ? setStatus(true) : setStatus(false)
-        }).catch((e) => {
-            console.log(e)
-        })
-    }
-
     const deleteFromCartHandler = async () => {
         await axios.post('http://localhost:8080/user/delete-cart', {
             tripId: props.id
@@ -89,10 +77,9 @@ const TripCard = (props) => {
     console.log(status)
 
     return <div className={styles.form_card} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
-        {isModal && ReactDOM.createPortal(<ModalPayment onClose={onClick}/>,
+        {isPayModal && ReactDOM.createPortal(<ModalPayment onClose={onClick}/>,
             document.getElementById("modal"))}
-
-        {isModal && ReactDOM.createPortal(<ModalAddCart tripId = {props.id} onClose={onClick}/>,
+        {isAmountModal && ReactDOM.createPortal(<ModalAddCart tripId = {props.id} onClose={onClick}/>,
             document.getElementById("modal"))}
 
         <img src={tripImage} className={styles.photo}></img>
@@ -122,16 +109,18 @@ const TripCard = (props) => {
             <h2>Опис</h2>
             <p>{props.description}</p>
             <div className={styles.action_panel}>
-                <Button text="ДОДАТИ" onClick={buttonClickHandler}/>
+                <Button text="ДОДАТИ" onClick={addButtonClickHandler}/>
             </div>
         </div>
         }
         {props.page === 'cart' && <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
             <h2>Опис</h2>
             <p>{props.description}</p>
+            <h2>ДО СПЛАТИ</h2>
+            <p></p>
             <div className={styles.status_container}>
                 <div className={styles.action_panel}>
-                    <Button text="ПРИДБАТИ" onClick = {buttonClickHandler}/>
+                    <Button text="ПРИДБАТИ" onClick = {payButtonClickHandler}/>
                     <Button text ="ВИДАЛИТИ" onClick = {deleteFromCartHandler}/>
                 </div>
                 <p className={status ? classes.success : classes.hidden}>ВИДАЛЕНО УСПІШНО</p>
