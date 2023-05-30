@@ -1,7 +1,4 @@
 .submit_button{
-    justify-content: center;
-    align-items: center;
-    display: flex;
     width: 30%;
     min-height: 60px;
     border: none;

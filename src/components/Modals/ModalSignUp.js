@@ -4,6 +4,7 @@ import Input from "../../UI/Input";
 import Button from "../../UI/Button";
 import {useState} from "react";
 import axios from "axios";
+import Backdrop from "../../UI/Backdrop";
 
 const ModalSignUp = (props) => {
     const [mail, setMail] = useState("")
@@ -53,31 +54,33 @@ const ModalSignUp = (props) => {
     }
 
     return <form className={styles.modal_signUp} onSubmit={(e) => {
-        e.preventDefault()
-    }}>
-        <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
-             alt="Image Not Found"></img>
-        <p className={status ? styles.hidden : styles.failure}>Помилка створення, такий акаунт вже існує, або вказані не
-            всі дані</p>
-        <p className={success ? styles.success : styles.hidden}>Дані успішно додані,поверніться назад аби увійти в
-            акаунт! </p>
-        <p>Створюй!</p>
+            e.preventDefault()
+        }}>
+            <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
+                 alt="Image Not Found"></img>
+            <p className={status ? styles.hidden : styles.failure}>Помилка створення, такий акаунт вже існує, або вказані не
+                всі дані</p>
+            <p className={success ? styles.success : styles.hidden}>Дані успішно додані,поверніться назад аби увійти в
+                акаунт! </p>
+            <p>Створюй!</p>
 
-        <Input height="50px" placeholder="Електронна пошта" type="email" fontSize="15px"
-               handler={mailInputHandler}
-               status={status} label = "Електронна Пошта"/>
-        <Input height="50px" placeholder="Логін" type="text" fontSize="15px" handler={loginInputHandler}
-               status={status} label = "Логін користувача"/>
+            <Input height="50px" placeholder="Електронна пошта" type="email" fontSize="15px"
+                   handler={mailInputHandler}
+                   status={status} label = "Електронна Пошта"/>
+            <Input height="50px" placeholder="Логін" type="text" fontSize="15px" handler={loginInputHandler}
+                   status={status} label = "Логін користувача"/>
 
-        <Input height="50px" placeholder="Аватар" type="file" fontSize="15px" handler={imageInputHandler}
-               status={status}
-               label="Аватар користувача" accept=".png, .jpeg"/>
-        <Input height="50px" placeholder="Пароль" type="password" fontSize="15px" handler={passwordInputHandler}
-               label="Пароль" status={status}/>
-        <p className={styles.modal_signUp_text}>Ви вже у спільноті? Поверніться <a
-            onClick={props.openLogInModal} className={styles.link}>НАЗАД!</a></p>
-        <Button text="ПІДТВЕРДИТИ" onClick={addUserHandler}/>
-    </form>
+            <Input height="50px" placeholder="Аватар" type="file" fontSize="15px" handler={imageInputHandler}
+                   status={status}
+                   label="Аватар користувача" accept=".png, .jpeg"/>
+            <Input height="50px" placeholder="Пароль" type="password" fontSize="15px" handler={passwordInputHandler}
+                   label="Пароль" status={status}/>
+            <p className={styles.modal_signUp_text}>Ви вже у спільноті? Поверніться <a
+                onClick={props.openLogInModal} className={styles.link}>НАЗАД!</a></p>
+            <Button text="ПІДТВЕРДИТИ" onClick={addUserHandler}/>
+        </form>
+
+
 }
 
 export default ModalSignUp

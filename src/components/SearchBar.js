@@ -8,6 +8,7 @@ const SearchBar = () => {
     const countryInputHandler = (event) => {
         setChoice(event.target.value)
     }
+    localStorage.removeItem('country')
     const navigation = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault()

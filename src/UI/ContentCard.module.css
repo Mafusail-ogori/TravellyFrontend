@@ -18,18 +18,15 @@
     width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #FFCA42;
     border-radius: 5px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: black;
 }

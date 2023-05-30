@@ -86,7 +86,6 @@ const Navbar = () => {
             <>
                 <NavbarItem className={"fa-solid fa-cart-shopping navbar_item_icon"} title="Кошик" link="/cart"/>
                 <NavbarItem className={"fa-solid fa-bell navbar_item_icon"} title="Сповіщ."/>
-                <NavbarItem className={"fa-solid fa-heart navbar_item_icon"} title="Лайк"/>
                 <NavbarItem className={"fa-solid fa-pen navbar_item_icon"} title="Відгуки"/>
                 <NavbarItem buttonClickHandler={buttonClickHandler} className={"fa-solid fa-user navbar_item_icon"}
                             title="Увійти"/>
@@ -96,7 +95,6 @@ const Navbar = () => {
             <>
                 <NavbarItem className={"fa-solid fa-cart-shopping navbar_item_icon"} title="Кошик" link="/cart"/>
                 <NavbarItem className={"fa-solid fa-bell navbar_item_icon"} title="Сповіщ."/>
-                <NavbarItem className={"fa-solid fa-heart navbar_item_icon"} title="Лайк"/>
                 <NavbarItem className={"fa-solid fa-pen navbar_item_icon"} title="Відгуки"/>
                 <img src={userLoaded} alt="Not Found" className={styles.avatar}/>
                 <NavbarItem className={"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"}

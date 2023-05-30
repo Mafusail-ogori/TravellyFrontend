@@ -34,14 +34,25 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.status_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .options_container p{
     display: flex;
     justify-content: space-between;
     gap: 40px
 }
-
 span{
     color: #FFCA42;
+}
+
+.action_panel{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
 }
 
 .photo{
@@ -49,6 +60,18 @@ span{
     height: 140px;
     width: 140px;
     border-radius: 50%;
+}
+
+.show_extra_info, .hide_extra_info{
+    grid-column: span 2;
+}
+
+.show_extra_info{
+    display: block;
+}
+
+.hide_extra_info{
+    display: none;
 }
 
 @media only screen and (max-width: 1500px){
