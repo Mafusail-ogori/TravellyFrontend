@@ -1,8 +1,12 @@
 import styles from './TripCard.module.css'
 import {useEffect, useState} from "react";
+import getRole from "../util/GetRole";
+import axios from "axios";
+import getToken from "../util/GetToken";
 
 const TripCard = (props) => {
     const [tripImage, setTripImage] = useState('')
+    const [status, setStatus] = useState(false)
 
     useEffect(() => {
         const fetchCompanyImage = async () => {
@@ -28,6 +32,21 @@ const TripCard = (props) => {
         fetchCompanyImage();
     }, [])
 
+    const chooseTripHandler = async () => {
+        await axios.post('http://localhost:8080/user/user-choose-trip', {
+            tripId: props.id
+        }, {
+            headers: {
+                'Authorization': `Bearer ${getToken()}`,
+                'Content-Type': 'application/json'
+            }
+        }).then((res) => {
+            setStatus(true)
+        }).catch((e) =>{
+            console.log(e)
+        })
+    }
+
     console.log(tripImage)
     return <div className={styles.form_card}>
         <img src={tripImage} className={styles.photo}></img>
@@ -47,6 +66,11 @@ const TripCard = (props) => {
                 </ul>
             </div>
         </div>
+        {getRole() === 'user' ? <>
+
+        </> : <>
+
+        </>}
     </div>
 }
 

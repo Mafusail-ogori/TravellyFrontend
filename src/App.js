@@ -8,7 +8,6 @@ import NewTrip from "./pages/Company/AddTrip/NewTrip";
 import AllTrips from "./pages/Company/ReviewTrip/AllTrips";
 import Cart from "./pages/Cart/Cart";
 import SearchTrip from "./pages/Search/SearchTrip";
-import SearchContextProvider from "./storage/SearchContext";
 
 const router = createBrowserRouter([
     {
@@ -27,9 +26,7 @@ const router = createBrowserRouter([
 ])
 const App = () => {
     return <AuthContextProvider>
-        <SearchContextProvider>
             <RouterProvider router={router}/>
-        </SearchContextProvider>
     </AuthContextProvider>
 }
 export default App;
