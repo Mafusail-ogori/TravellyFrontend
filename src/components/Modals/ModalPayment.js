@@ -16,8 +16,6 @@ const ModalPayment = (props) => {
             <p className={status ? styles.hidden : styles.failure}>Помилка створення, такий акаунт вже існує, або
                 вказані не
                 всі дані</p>
-            {/*<p className={success ? styles.success : styles.hidden}>Дані успішно додані,поверніться назад аби увійти в*/}
-            {/*    акаунт! </p>*/}
             <p>Сплачуй, Подорожуй!</p>
 
             <Input height="50px" placeholder="Номер картки" type="text" fontSize="15px"

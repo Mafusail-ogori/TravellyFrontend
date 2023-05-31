@@ -7,6 +7,7 @@ import classes from '../components/Modal.module.css'
 import ModalPayment from "../components/Modals/ModalPayment";
 import ReactDOM from "react-dom";
 import ModalAddCart from "../components/Modals/ModalAddCart";
+import {useNavigate} from "react-router-dom";
 
 const TripCard = (props) => {
     const [tripImage, setTripImage] = useState('')
@@ -31,8 +32,14 @@ const TripCard = (props) => {
         setIsAmountModal(true)
     }
 
-    const onClick = (event) => {
+    const onClick = () => {
         setIsPayModal(false);
+    }
+
+    const navigation = useNavigate()
+
+    const editTripHandler = () => {
+        navigation('/company/edit')
     }
 
     useEffect(() => {
@@ -74,6 +81,23 @@ const TripCard = (props) => {
             console.log(e)
         })
     }
+
+    const deleteTrip = async () => {
+        await axios.post('http://localhost:8080/company/delete-trip', {
+            tripId: props.id
+        }, {
+            headers: {
+                'Authorization': `Bearer ${getToken()}`,
+                'Content-Type': 'application/json'
+            }
+        }).then((res) => {
+            res ? setStatus(true) : setStatus(false)
+        }).catch((e) => {
+            console.log(e)
+        })
+    }
+
+
     return <div className={styles.form_card} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
         {isPayModal && ReactDOM.createPortal(<ModalPayment onClose={onClick}/>,
             document.getElementById("modal"))}
@@ -101,6 +125,11 @@ const TripCard = (props) => {
         {props.page === 'review' && <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
             <h2>Опис</h2>
             <p>{props.description}</p>
+            <div className={styles.action_panel}>
+                <Button text="РЕДАГУВАТИ" onClick={editTripHandler}/>
+                <Button text="ВИДАЛИТИ" onClick = {deleteTrip}/>
+            </div>
+            <p className={status ? classes.success : classes.hidden}>ВИДАЛЕНО УСПІШНО</p>
         </div>
         }
         {props.page === 'search' && <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>

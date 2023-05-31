@@ -75,10 +75,10 @@ span{
 }
 
 @media only screen and (max-width: 1500px){
-    .options_container{
-        flex-direction: column;
-    }
     .form_card{
-        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+    .form_card:hover{
+        grid-template-columns: 1fr;
     }
 }

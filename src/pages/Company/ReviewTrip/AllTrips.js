@@ -26,8 +26,6 @@ const AllTrips = () => {
         getAllTrips()
     }, [])
 
-    console.log(allTrips)
-
 
     return <ContentWrapper whiteText = "ПЕРЕГЛЯДАЙ" blackText = "ВДОСКОНАЛЮЙ" color = "#8194FF" height = "1000px">
         <ContentCard height = "700px">

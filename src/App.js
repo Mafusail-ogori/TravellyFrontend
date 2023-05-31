@@ -8,6 +8,7 @@ import NewTrip from "./pages/Company/AddTrip/NewTrip";
 import AllTrips from "./pages/Company/ReviewTrip/AllTrips";
 import Cart from "./pages/Cart/Cart";
 import SearchTrip from "./pages/Search/SearchTrip";
+import IncomeStatistics from "./pages/Company/IncomeStats/IncomeStatistics";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,9 @@ const router = createBrowserRouter([
             {path: 'company/log-in', element: <CompanyLogIn/>},
             {path: 'company/add-trip', element: <NewTrip/>},
             {path: 'company/review-trip', element: <AllTrips/>},
-            {path: 'user/search-trip', element: <SearchTrip/>}
+            {path: 'user/search-trip', element: <SearchTrip/>},
+            {path: 'company/income-statistics', element: <IncomeStatistics/>},
+            {path: 'company/edit', element: <NewTrip/>}
         ]
     }
 ])
