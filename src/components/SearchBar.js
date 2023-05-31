@@ -17,7 +17,7 @@ const SearchBar = () => {
     }
 
     return <FormCard height = "50%" backgroundImg = {Maldives} onSubmit = {handleSubmit}>
-        <Input type =  "text" placeholder="Куди?" fontSize = "16px" status = "true" height = "75px" handler = {countryInputHandler}/>
+        <Input type =  "text" placeholder="Куди?" fontSize = "16px" status = {false} height = "75px" handler = {countryInputHandler}/>
     </FormCard>
 }
 export default SearchBar;

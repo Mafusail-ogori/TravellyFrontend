@@ -31,7 +31,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        if(getRole() === 'user'){
+        if (getRole() === 'user') {
             const fetchUserImage = async () => {
                 try {
                     const response = await fetch('http://localhost:8080/user/logged-user-page-avatar', {
@@ -55,7 +55,7 @@ const Navbar = () => {
     }, [role]);
 
     useEffect(() => {
-        if (getRole() === 'company'){
+        if (getRole() === 'company') {
             const fetchCompanyImage = async () => {
                 try {
                     const response = await fetch('http://localhost:8080/company/logged-company-page-avatar', {
@@ -103,8 +103,9 @@ const Navbar = () => {
             </>}
         {role === 'company' &&
             <>
-                <NavbarItem className={"fa-solid fa-plus navbar_item_icon"} title="Додати" link = "/company/add-trip"/>
-                <NavbarItem className={"fa-solid fa-eye navbar_item_icon"} title="Переглянути" link = "/company/review-trip"/>
+                <NavbarItem className={"fa-solid fa-plus navbar_item_icon"} title="Додати" link="/company/add-trip"/>
+                <NavbarItem className={"fa-solid fa-eye navbar_item_icon"} title="Переглянути"
+                            link="/company/review-trip"/>
                 <NavbarItem className={"fa-solid fa-money-bill navbar_item_icon"} title="Прибуток"/>
                 <img src={companyLoaded} alt="Not Found" className={styles.avatar}/>
                 <NavbarItem className={"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"}

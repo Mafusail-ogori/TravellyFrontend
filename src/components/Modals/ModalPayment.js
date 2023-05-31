@@ -9,7 +9,7 @@ const ModalPayment = (props) => {
     const [status, setStatus] = useState(true)
 
     return <>
-        <Backdrop onClick = {props.onClose}/>
+        <Backdrop onClick={props.onClose}/>
         <form className={styles.modal_login}>
             <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
                  alt="Image Not Found"></img>

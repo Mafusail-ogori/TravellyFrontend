@@ -22,7 +22,7 @@ const TripCard = (props) => {
     }
 
     const [isPayModal, setIsPayModal] = useState(false);
-    const [isAmountModal , setIsAmountModal] = useState(false)
+    const [isAmountModal, setIsAmountModal] = useState(false)
     const payButtonClickHandler = () => {
         setIsPayModal(true);
     }
@@ -61,7 +61,8 @@ const TripCard = (props) => {
 
     const deleteFromCartHandler = async () => {
         await axios.post('http://localhost:8080/user/delete-cart', {
-            tripId: props.id
+            tripId: props.id,
+            amount: props.orderAmount
         }, {
             headers: {
                 'Authorization': `Bearer ${getToken()}`,
@@ -73,13 +74,10 @@ const TripCard = (props) => {
             console.log(e)
         })
     }
-
-    console.log(status)
-
     return <div className={styles.form_card} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
         {isPayModal && ReactDOM.createPortal(<ModalPayment onClose={onClick}/>,
             document.getElementById("modal"))}
-        {isAmountModal && ReactDOM.createPortal(<ModalAddCart tripId = {props.id} onClose={onClick}/>,
+        {isAmountModal && ReactDOM.createPortal(<ModalAddCart tripId={props.id} onClose={onClick}/>,
             document.getElementById("modal"))}
 
         <img src={tripImage} className={styles.photo}></img>
@@ -96,7 +94,7 @@ const TripCard = (props) => {
                     <li>Починається: <span>{props.startDate}</span></li>
                     <li>Закінчується: <span>{props.endDate}</span></li>
                     <li>Харчування: <span>{props.food}</span></li>
-                    <li>Максимально людей: <span>{props.peopleAmount}</span></li>
+                    <li>Вільних місць: <span>{props.peopleAmount}</span></li>
                 </ul>
             </div>
         </div>
@@ -116,12 +114,10 @@ const TripCard = (props) => {
         {props.page === 'cart' && <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
             <h2>Опис</h2>
             <p>{props.description}</p>
-            <h2>ДО СПЛАТИ</h2>
-            <p></p>
             <div className={styles.status_container}>
                 <div className={styles.action_panel}>
-                    <Button text="ПРИДБАТИ" onClick = {payButtonClickHandler}/>
-                    <Button text ="ВИДАЛИТИ" onClick = {deleteFromCartHandler}/>
+                    <Button text="ПРИДБАТИ" onClick={payButtonClickHandler}/>
+                    <Button text="ВИДАЛИТИ" onClick={deleteFromCartHandler}/>
                 </div>
                 <p className={status ? classes.success : classes.hidden}>ВИДАЛЕНО УСПІШНО</p>
             </div>

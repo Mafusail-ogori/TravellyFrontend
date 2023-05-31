@@ -17,10 +17,10 @@ const Modal = (props) => {
     return <>
         <Backdrop onClick={props.onClose}/>
         {currentModal === 'modalLogin' && (
-            <ModalLogin openSignUpModal={openSignUpModal} onClose = {props.onClose}/>
+            <ModalLogin openSignUpModal={openSignUpModal} onClose={props.onClose}/>
         )}
         {currentModal === 'modalSignUp' && (
-            <ModalSignUp openLogInModal={openLogInModal} onClose = {props.onClose}/>)}
+            <ModalSignUp openLogInModal={openLogInModal} onClose={props.onClose}/>)}
     </>
 }
 

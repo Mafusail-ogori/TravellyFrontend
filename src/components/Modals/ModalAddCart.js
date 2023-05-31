@@ -38,14 +38,15 @@ const ModalAddCart = (props) => {
 
     return <>
         <Backdrop onClick={props.onClose}/>
-        <form className={styles.modal_login} onSubmit = {chooseTripHandler}>
+        <form className={styles.modal_login} onSubmit={chooseTripHandler}>
             <img className={stylesLogo.header_logo} src={require("../../assets/icons/logo.png")}
                  alt="Image Not Found"/>
-            <p className={status ? styles.hidden : styles.failure}>Помилка надсилання. Недопустима кількість, або інша проблема</p>
+            <p className={status ? styles.hidden : styles.failure}>Помилка надсилання. Недопустима кількість, або інша
+                проблема</p>
             <p>ВВЕДІТЬ КІЛЬКІСТЬ!</p>
-            <Input status = {status} height="50px" placeholder="Введіть кількість путівок" type="number" fontSize="15px"
-                   label="Кількість путівок" handler = {setAmountHandler}/>
-            <Button text='ОПЛАТИТИ' type = "submit"/>
+            <Input status={status} height="50px" placeholder="Введіть кількість путівок" type="number" fontSize="15px"
+                   label="Кількість путівок" handler={setAmountHandler}/>
+            <Button text='ОПЛАТИТИ' type="submit"/>
         </form>
     </>
 }

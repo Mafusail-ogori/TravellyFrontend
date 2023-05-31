@@ -7,12 +7,14 @@
     background-color: black;
     font-weight: 100;
     color: white;
+    padding: 0 20% 0 20%;
 }
 .footer_logo_text{
     font-size: 18px;
     text-align: center;
 }
 .footer_text{
+    font-weight: lighter;
     font-size: 13px;
     text-align: center;
 }
