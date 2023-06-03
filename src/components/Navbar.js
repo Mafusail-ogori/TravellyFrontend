@@ -8,7 +8,6 @@ import getToken from "../util/GetToken";
 import localStorage from "localStorage";
 import getRole from "../util/GetRole";
 
-
 const Navbar = () => {
     const {role, setRole} = useContext(AuthContext)
     const [userLoaded, setUserLoaded] = useState('');
@@ -103,7 +102,7 @@ const Navbar = () => {
             </>}
         {role === 'company' &&
             <>
-                <NavbarItem className={"fa-solid fa-plus navbar_item_icon"} title="Додати" link="/company/add-trip"/>
+                <NavbarItem className={"fa-solid fa-plus navbar_item_icon"} title="Додати" link="/company/add-trip" page = "add"/>
                 <NavbarItem className={"fa-solid fa-eye navbar_item_icon"} title="Переглянути"
                             link="/company/review-trip"/>
                 <NavbarItem className={"fa-solid fa-money-bill navbar_item_icon"} title="Прибуток"

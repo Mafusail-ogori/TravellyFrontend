@@ -55,7 +55,8 @@ const TripCard = (props) => {
             startDate: props.startDate,
             endDate: props.endDate,
             price: props.price,
-            description: props.description
+            description: props.description,
+            image: tripImage
         })
     }
 

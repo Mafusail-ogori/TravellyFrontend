@@ -3,7 +3,7 @@ import {Link, NavLink} from "react-router-dom";
 
 
 const NavbarItem = (props) => {
-
+    localStorage.setItem('page', props.page)
     return <NavLink tag={Link} to={props.link} className={styles.navbar_item_link}>
         <button className={styles.navbar_item_wrapper} onClick={props.buttonClickHandler}>
             <i className={props.className}/>
