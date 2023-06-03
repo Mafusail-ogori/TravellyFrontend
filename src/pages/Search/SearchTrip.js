@@ -2,7 +2,7 @@ import ContentWrapper from "../../UI/ContentWrapper";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import ContentCard from "../../UI/ContentCard";
-import TripCard from "../../UI/TripCard";
+import TripCard from "../../components/TripCard";
 import logo from "../../assets/icons/logo.png";
 import classes from "../Home/Header.module.css";
 import styles from "../Company/SignUp/CompanySignUp.module.css";

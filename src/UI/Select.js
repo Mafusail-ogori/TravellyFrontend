@@ -5,7 +5,7 @@ const Select = (props) => {
         <label className={styles.label_text}>{props.label}</label>
         <select style={{height: props.height, fontSize: props.fontSize}}
                 className={props.status ? styles.inputField : styles.errorInput}
-                placeholder={props.placeholder} required onChange={props.handler}>
+                placeholder={props.placeholder} required onChange={props.handler} value = {props.value} name={props.name}>
             {props.options.map((option) => (
                 <option className={styles.option} value={option}>{option}</option>
             ))}

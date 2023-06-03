@@ -1,6 +1,6 @@
 import ContentWrapper from "../../UI/ContentWrapper";
 import ContentCard from "../../UI/ContentCard";
-import TripCard from "../../UI/TripCard";
+import TripCard from "../../components/TripCard";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../storage/AuthContext";
 import logo from "../../assets/icons/logo.png";

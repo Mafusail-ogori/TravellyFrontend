@@ -9,6 +9,7 @@ import AllTrips from "./pages/Company/ReviewTrip/AllTrips";
 import Cart from "./pages/Cart/Cart";
 import SearchTrip from "./pages/Search/SearchTrip";
 import IncomeStatistics from "./pages/Company/IncomeStats/IncomeStatistics";
+import TripContextProvider from "./storage/TripContext";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
 ])
 const App = () => {
     return <AuthContextProvider>
+        <TripContextProvider>
             <RouterProvider router={router}/>
+        </TripContextProvider>
     </AuthContextProvider>
 }
 export default App;

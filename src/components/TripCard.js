@@ -1,18 +1,20 @@
 import styles from './TripCard.module.css'
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import getToken from "../util/GetToken";
-import Button from "./Button";
-import classes from '../components/Modal.module.css'
-import ModalPayment from "../components/Modals/ModalPayment";
+import Button from "../UI/Button";
+import classes from './Modal.module.css'
+import ModalPayment from "./Modals/ModalPayment";
 import ReactDOM from "react-dom";
-import ModalAddCart from "../components/Modals/ModalAddCart";
+import ModalAddCart from "./Modals/ModalAddCart";
 import {useNavigate} from "react-router-dom";
+import {TripContext} from "../storage/TripContext";
 
 const TripCard = (props) => {
     const [tripImage, setTripImage] = useState('')
     const [status, setStatus] = useState(false)
     const [expanded, setExpanded] = useState(false)
+    const {setTrip} = useContext(TripContext)
 
     const mouseOverHandler = () => {
         setExpanded(true)
@@ -39,7 +41,22 @@ const TripCard = (props) => {
     const navigation = useNavigate()
 
     const editTripHandler = () => {
+        localStorage.setItem('page', 'edit')
         navigation('/company/edit')
+        setTrip({
+            id: props.id,
+            name: props.title,
+            peopleAmount: props.peopleAmount,
+            transfer: props.transfer,
+            food: props.food,
+            hotel: props.hotel,
+            startCountry: props.startCountry,
+            destinationCountry: props.destinationCountry,
+            startDate: props.startDate,
+            endDate: props.endDate,
+            price: props.price,
+            description: props.description
+        })
     }
 
     useEffect(() => {
@@ -96,7 +113,6 @@ const TripCard = (props) => {
             console.log(e)
         })
     }
-
 
     return <div className={styles.form_card} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
         {isPayModal && ReactDOM.createPortal(<ModalPayment onClose={onClick}/>,
