@@ -7,7 +7,7 @@ import classes from './Modal.module.css'
 import ModalPayment from "./Modals/ModalPayment";
 import ReactDOM from "react-dom";
 import ModalAddCart from "./Modals/ModalAddCart";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {TripContext} from "../storage/TripContext";
 
 const TripCard = (props) => {
@@ -59,6 +59,8 @@ const TripCard = (props) => {
             image: tripImage
         })
     }
+
+    const location = useLocation()
 
     useEffect(() => {
         const fetchCompanyImage = async () => {
@@ -139,35 +141,38 @@ const TripCard = (props) => {
                 </ul>
             </div>
         </div>
-        {props.page === 'review' && <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
-            <h2>Опис</h2>
-            <p>{props.description}</p>
-            <div className={styles.action_panel}>
-                <Button text="РЕДАГУВАТИ" onClick={editTripHandler}/>
-                <Button text="ВИДАЛИТИ" onClick = {deleteTrip}/>
-            </div>
-            <p className={status ? classes.success : classes.hidden}>ВИДАЛЕНО УСПІШНО</p>
-        </div>
-        }
-        {props.page === 'search' && <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
-            <h2>Опис</h2>
-            <p>{props.description}</p>
-            <div className={styles.action_panel}>
-                <Button text="ДОДАТИ" onClick={addButtonClickHandler}/>
-            </div>
-        </div>
-        }
-        {props.page === 'cart' && <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
-            <h2>Опис</h2>
-            <p>{props.description}</p>
-            <div className={styles.status_container}>
+        {location.pathname === '/company/review-trip' &&
+            <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
+                <h2>Опис</h2>
+                <p>{props.description}</p>
                 <div className={styles.action_panel}>
-                    <Button text="ПРИДБАТИ" onClick={payButtonClickHandler}/>
-                    <Button text="ВИДАЛИТИ" onClick={deleteFromCartHandler}/>
+                    <Button text="РЕДАГУВАТИ" onClick={editTripHandler}/>
+                    <Button text="ВИДАЛИТИ" onClick={deleteTrip}/>
                 </div>
                 <p className={status ? classes.success : classes.hidden}>ВИДАЛЕНО УСПІШНО</p>
             </div>
-        </div>
+        }
+        {location.pathname === '/user/search-trip' &&
+            <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
+                <h2>Опис</h2>
+                <p>{props.description}</p>
+                <div className={styles.action_panel}>
+                    <Button text="ДОДАТИ" onClick={addButtonClickHandler}/>
+                </div>
+            </div>
+        }
+        {location.pathname === '/cart' &&
+            <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
+                <h2>Опис</h2>
+                <p>{props.description}</p>
+                <div className={styles.status_container}>
+                    <div className={styles.action_panel}>
+                        <Button text="ПРИДБАТИ" onClick={payButtonClickHandler}/>
+                        <Button text="ВИДАЛИТИ" onClick={deleteFromCartHandler}/>
+                    </div>
+                    <p className={status ? classes.success : classes.hidden}>ВИДАЛЕНО УСПІШНО</p>
+                </div>
+            </div>
         }
     </div>
 }

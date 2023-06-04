@@ -5,9 +5,7 @@ import CompanySignUp from "./pages/Company/SignUp/CompanySignUp";
 import CompanyLogIn from "./pages/Company/LogIn/CompanyLogIn";
 import AuthContextProvider from "./storage/AuthContext";
 import NewTrip from "./pages/Company/AddTrip/NewTrip";
-import AllTrips from "./pages/Company/ReviewTrip/AllTrips";
-import Cart from "./pages/Cart/Cart";
-import SearchTrip from "./pages/Search/SearchTrip";
+import TripReviewer from "./components/TripReviewer";
 import IncomeStatistics from "./pages/Company/IncomeStats/IncomeStatistics";
 import TripContextProvider from "./storage/TripContext";
 
@@ -17,12 +15,12 @@ const router = createBrowserRouter([
         element: <RootLayout/>,
         children: [
             {path: '', element: <Body/>},
-            {path: 'cart', element: <Cart/>},
+            {path: 'cart', element: <TripReviewer/>},
             {path: 'create-company', element: <CompanySignUp/>},
             {path: 'company/log-in', element: <CompanyLogIn/>},
             {path: 'company/add-trip', element: <NewTrip/>},
-            {path: 'company/review-trip', element: <AllTrips/>},
-            {path: 'user/search-trip', element: <SearchTrip/>},
+            {path: 'company/review-trip', element: <TripReviewer/>},
+            {path: 'user/search-trip', element: <TripReviewer/>},
             {path: 'company/income-statistics', element: <IncomeStatistics/>},
             {path: 'company/edit', element: <NewTrip/>}
         ]
