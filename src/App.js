@@ -22,7 +22,8 @@ const router = createBrowserRouter([
             {path: 'company/review-trip', element: <TripReviewer/>},
             {path: 'user/search-trip', element: <TripReviewer/>},
             {path: 'company/income-statistics', element: <IncomeStatistics/>},
-            {path: 'company/edit', element: <NewTrip/>}
+            {path: 'company/edit', element: <NewTrip/>},
+            {path: 'user/bought', element: <TripReviewer/>}
         ]
     }
 ])

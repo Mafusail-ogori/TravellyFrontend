@@ -174,6 +174,12 @@ const TripCard = (props) => {
                 </div>
             </div>
         }
+        {location.pathname === '/user/bought' &&
+            <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
+                <h2>Опис</h2>
+                <p>{props.description}</p>
+            </div>
+        }
     </div>
 }
 

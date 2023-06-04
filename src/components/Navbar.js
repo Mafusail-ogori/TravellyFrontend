@@ -95,6 +95,7 @@ const Navbar = () => {
                 <NavbarItem className={"fa-solid fa-cart-shopping navbar_item_icon"} title="Кошик" link="/cart"/>
                 <NavbarItem className={"fa-solid fa-bell navbar_item_icon"} title="Сповіщ."/>
                 <NavbarItem className={"fa-solid fa-pen navbar_item_icon"} title="Відгуки"/>
+                <NavbarItem className = {"fa-solid fa-check navbar_item_icon"} title="Придбані" link="/user/bought"/>
                 <img src={userLoaded} alt="Not Found" className={styles.avatar}/>
                 <NavbarItem className={"ffa-sharp fa-solid fa-arrow-right-from-bracket navbar_item_icon"}
                             buttonClickHandler={logOutHandler}

@@ -38,10 +38,22 @@ const TripReviewer = () => {
             })
     }
 
-    const getAllCompanyTrips =  async () => {
+    const getAllCompanyTrips = async () => {
         await axios.get('http://localhost:8080/company/review-trip', {
             headers: {
-                Authorization : `Bearer ${getToken()}`
+                Authorization: `Bearer ${getToken()}`
+            }
+        }).then((res) => {
+            setTrips(res.data)
+        }).catch((e) => {
+            console.log(e)
+        })
+    }
+
+    const getAllBoughtTrips = async () => {
+        await axios.get('http://localhost:8080/user/user-bought-trips', {
+            headers: {
+                Authorization: `Bearer ${getToken()}`
             }
         }).then((res) => {
             setTrips(res.data)
@@ -51,14 +63,14 @@ const TripReviewer = () => {
     }
 
     useEffect(() => {
-        if(location.pathname === '/cart'){
+        if (location.pathname === '/cart') {
             getUserCartTripsHandler()
-        }
-        else if(location.pathname === '/user/search-trip'){
+        } else if (location.pathname === '/user/search-trip') {
             getAllUserTrips()
-        }
-        else if(location.pathname === '/company/review-trip'){
+        } else if (location.pathname === '/company/review-trip') {
             getAllCompanyTrips()
+        } else if (location.pathname === '/user/bought') {
+            getAllBoughtTrips()
         }
     }, [location])
 
@@ -71,7 +83,7 @@ const TripReviewer = () => {
             {(role === 'user' && location.pathname === '/cart') &&
                 <>
                     <img src={logo} className={classes.header_logo} alt="Not found"/>
-                    <p className={styles.text}>КОРЗИНА</p>
+                    <p className={styles.text}>ВАШ КОШИК</p>
                     {trips.map((trip) => (
                             <TripCard peopleAmount={trip.trip_people_amount}
                                       id={trip.trip_id} title={trip.trip_name} startCountry={trip.trip_start_country}
@@ -86,24 +98,39 @@ const TripReviewer = () => {
                 <img src={logo} className={classes.header_logo} alt="Not found"/>
                 <p className={styles.text}>ВАШІ РЕЗУЛЬТАТИ</p>
                 {trips.map((trip) => (
-                        <TripCard peopleAmount = {trip.trip_people_amount} id={trip.trip_id} title={trip.trip_name} startCountry={trip.trip_start_country}
+                        <TripCard peopleAmount={trip.trip_people_amount} id={trip.trip_id} title={trip.trip_name}
+                                  startCountry={trip.trip_start_country}
                                   endCountry={trip.trip_destination_country} hotel={trip.trip_hotel}
                                   transfer={trip.trip_transfer} startDate={trip.trip_start_date}
                                   endDate={trip.trip_end_date} food={trip.trip_food}
-                                  price={trip.trip_price} description = {trip.trip_description}/>
+                                  price={trip.trip_price} description={trip.trip_description}/>
+                    )
+                )}</>}
+            {(role === 'user' && location.pathname === '/user/bought') && <>
+                <img src={logo} className={classes.header_logo} alt="Not found"/>
+                <p className={styles.text}>ПРИДБАНІ ПУТІВКИ</p>
+                {trips.map((trip) => (
+                        <TripCard peopleAmount={trip.trip_people_amount} id={trip.trip_id} title={trip.trip_name}
+                                  startCountry={trip.trip_start_country}
+                                  endCountry={trip.trip_destination_country} hotel={trip.trip_hotel}
+                                  transfer={trip.trip_transfer} startDate={trip.trip_start_date}
+                                  endDate={trip.trip_end_date} food={trip.trip_food}
+                                  price={trip.trip_price} description={trip.trip_description}/>
                     )
                 )}</>}
             {(role === 'company' && location.pathname === '/company/review-trip') && <>
-                <img src = {logo} className={classes.header_logo} alt="Not found"/>
+                <img src={logo} className={classes.header_logo} alt="Not found"/>
                 <p className={styles.text}>ПУТІВКИ КОМПАНІЇ</p>
                 {trips.map((trip) => (
-                    <TripCard peopleAmount = {trip.trip_people_amount} id = {trip.trip_id} title = {trip.trip_name} startCountry = {trip.trip_start_country}
-                              endCountry = {trip.trip_destination_country} hotel = {trip.trip_hotel}
-                              transfer = {trip.trip_transfer} startDate = {trip.trip_start_date} endDate = {trip.trip_end_date} food = {trip.trip_food}
-                              price = {trip.trip_price} description = {trip.trip_description}/>
+                    <TripCard peopleAmount={trip.trip_people_amount} id={trip.trip_id} title={trip.trip_name}
+                              startCountry={trip.trip_start_country}
+                              endCountry={trip.trip_destination_country} hotel={trip.trip_hotel}
+                              transfer={trip.trip_transfer} startDate={trip.trip_start_date}
+                              endDate={trip.trip_end_date} food={trip.trip_food}
+                              price={trip.trip_price} description={trip.trip_description}/>
                 ))}
             </>}
-            {role === 'none' &&  <>
+            {role === 'none' && <>
                 <img src={logo} className={classes.header_logo} alt="Not found"/>
                 <p className={styles.text}>ДЛЯ ПЕРЕГЛЯДУ КОРЗИНИ НЕОБХІДНО ЗАРЕЄСТРУВАТИСЬ</p>
             </>}
