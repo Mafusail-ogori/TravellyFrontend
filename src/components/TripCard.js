@@ -118,7 +118,7 @@ const TripCard = (props) => {
     }
 
     return <div className={styles.form_card} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
-        {isPayModal && ReactDOM.createPortal(<ModalPayment onClose={onClick}/>,
+        {isPayModal && ReactDOM.createPortal(<ModalPayment tripId = {props.id} amount = {props.price} onClose={onClick}/>,
             document.getElementById("modal"))}
         {isAmountModal && ReactDOM.createPortal(<ModalAddCart tripId={props.id} onClose={onClick}/>,
             document.getElementById("modal"))}

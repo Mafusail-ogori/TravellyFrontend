@@ -60,7 +60,7 @@ const TripReviewer = () => {
         else if(location.pathname === '/company/review-trip'){
             getAllCompanyTrips()
         }
-    }, [])
+    }, [location])
 
     const {role} = useContext(AuthContext)
 
@@ -73,7 +73,7 @@ const TripReviewer = () => {
                     <img src={logo} className={classes.header_logo} alt="Not found"/>
                     <p className={styles.text}>КОРЗИНА</p>
                     {trips.map((trip) => (
-                            <TripCard orderAmount={trip.amount} peopleAmount={trip.trip_people_amount}
+                            <TripCard peopleAmount={trip.trip_people_amount}
                                       id={trip.trip_id} title={trip.trip_name} startCountry={trip.trip_start_country}
                                       endCountry={trip.trip_destination_country} hotel={trip.trip_hotel}
                                       transfer={trip.trip_transfer} startDate={trip.trip_start_date}
@@ -97,7 +97,7 @@ const TripReviewer = () => {
                 <img src = {logo} className={classes.header_logo} alt="Not found"/>
                 <p className={styles.text}>ПУТІВКИ КОМПАНІЇ</p>
                 {trips.map((trip) => (
-                    <TripCard trip_id = {trip.trip_id} peopleAmount = {trip.trip_people_amount} id = {trip.trip_id} title = {trip.trip_name} startCountry = {trip.trip_start_country}
+                    <TripCard peopleAmount = {trip.trip_people_amount} id = {trip.trip_id} title = {trip.trip_name} startCountry = {trip.trip_start_country}
                               endCountry = {trip.trip_destination_country} hotel = {trip.trip_hotel}
                               transfer = {trip.trip_transfer} startDate = {trip.trip_start_date} endDate = {trip.trip_end_date} food = {trip.trip_food}
                               price = {trip.trip_price} description = {trip.trip_description}/>
