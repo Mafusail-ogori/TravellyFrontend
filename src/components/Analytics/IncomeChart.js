@@ -9,7 +9,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 
-const IncomeChart = ({ data, color }) => {
+const IncomeChart = ({ data, color, strokeColor }) => {
     return (
         <ResponsiveContainer width="100%" height={300}>
             <AreaChart
@@ -22,11 +22,11 @@ const IncomeChart = ({ data, color }) => {
                 }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="day" />
+                <XAxis dataKey="date" />
                 <YAxis type="number" />
                 <Tooltip />
                 <Legend />
-                <Area dataKey="amount" stroke={color} fill={color} />
+                <Area type = "monotone" dataKey="amount" stroke={strokeColor} fill={color}/>
             </AreaChart>
         </ResponsiveContainer>
     );
