@@ -85,7 +85,7 @@ const TripReviewer = () => {
                     <img src={logo} className={classes.header_logo} alt="Not found"/>
                     <p className={styles.text}>ВАШ КОШИК</p>
                     {trips.map((trip) => (
-                            <TripCard peopleAmount={trip.trip_people_amount}
+                            <TripCard orderAmount = {trip.amount} peopleAmount={trip.trip_people_amount}
                                       id={trip.trip_id} title={trip.trip_name} startCountry={trip.trip_start_country}
                                       endCountry={trip.trip_destination_country} hotel={trip.trip_hotel}
                                       transfer={trip.trip_transfer} startDate={trip.trip_start_date}

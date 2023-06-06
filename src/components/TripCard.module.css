@@ -62,8 +62,17 @@ span{
     border-radius: 50%;
 }
 
+.comment_sender{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
 .show_extra_info, .hide_extra_info{
     grid-column: span 2;
+    gap: 20px;
 }
 
 .show_extra_info{

@@ -9,12 +9,18 @@ import ReactDOM from "react-dom";
 import ModalAddCart from "./Modals/ModalAddCart";
 import {useLocation, useNavigate} from "react-router-dom";
 import {TripContext} from "../storage/TripContext";
+import TextArea from "../UI/TextArea";
 
 const TripCard = (props) => {
     const [tripImage, setTripImage] = useState('')
     const [status, setStatus] = useState(false)
     const [expanded, setExpanded] = useState(false)
     const {setTrip} = useContext(TripContext)
+    const [review, setReview] = useState('')
+
+    const reviewInputHandler = (event) => {
+        setReview(event.target.value)
+    }
 
     const mouseOverHandler = () => {
         setExpanded(true)
@@ -117,8 +123,24 @@ const TripCard = (props) => {
         })
     }
 
+    const addReviewHandler = async () => {
+        await axios.post('http://localhost:8080/user/add-review', {
+            review: review,
+            tripId: props.id
+        }, {
+            headers: {
+                'Authorization': `Bearer ${getToken()}`,
+                'Content-Type': 'application/json'
+            }
+        }).then((res) => {
+            res ? setStatus(true) : setStatus(false)
+        }).catch((e) => {
+            console.log(e)
+        })
+    }
+
     return <div className={styles.form_card} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
-        {isPayModal && ReactDOM.createPortal(<ModalPayment tripId = {props.id} amount = {props.price} onClose={onClick}/>,
+        {isPayModal && ReactDOM.createPortal(<ModalPayment tripId={props.id} amount={props.price} onClose={onClick}/>,
             document.getElementById("modal"))}
         {isAmountModal && ReactDOM.createPortal(<ModalAddCart tripId={props.id} onClose={onClick}/>,
             document.getElementById("modal"))}
@@ -178,6 +200,12 @@ const TripCard = (props) => {
             <div className={expanded ? styles.show_extra_info : styles.hide_extra_info}>
                 <h2>Опис</h2>
                 <p>{props.description}</p>
+                <TextArea height="100px" placeholder="Напишіть ваш відгук тут" fontSize="14px"
+                          borderRadius="10px" handler={reviewInputHandler}/>
+                <div className={styles.comment_sender}>
+                    <Button text="НАДІСЛАТИ" onClick={addReviewHandler}/>
+                    <p className={status ? classes.success : classes.hidden}>ДОДАНО УСПІШНО</p>
+                </div>
             </div>
         }
     </div>

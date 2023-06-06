@@ -26,7 +26,7 @@ const IncomeChart = ({ data, color, strokeColor }) => {
                 <YAxis type="number" />
                 <Tooltip />
                 <Legend />
-                <Area type = "monotone" dataKey="amount" stroke={strokeColor} fill={color}/>
+                <Area dataKey="amount" stroke={strokeColor} fill={color}/>
             </AreaChart>
         </ResponsiveContainer>
     );
